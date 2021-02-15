@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="SysConfig" location="C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vitis_ws/SysConfig" platform="C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vitis_ws/Zynth_hw/export/Zynth_hw/Zynth_hw.xpfm" platformUID="rtlogik:pynq-z2:zynth_hw:1.0(custom)" systemProject="Zynth" sysConfig="Zynth_hw" runtime="C/C++" cpu="standalone_domain" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="84df6d4d18d4de229a75924a4e16f949">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.1940713342">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.541237185" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>

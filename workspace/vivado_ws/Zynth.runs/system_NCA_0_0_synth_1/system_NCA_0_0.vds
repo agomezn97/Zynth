@@ -1,0 +1,329 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Feb 15 19:44:38 2021
+# Process ID: 7456
+# Current directory: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1
+# Command line: vivado.exe -log system_NCA_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_NCA_0_0.tcl
+# Log file: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1/system_NCA_0_0.vds
+# Journal file: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source system_NCA_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.cache/ip 
+Command: synth_design -top system_NCA_0_0 -part xc7z020clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 16660
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'system_NCA_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/synth/system_NCA_0_0.vhd:71]
+INFO: [Synth 8-3491] module 'NCA' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:14' bound to instance 'U0' of component 'NCA' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/synth/system_NCA_0_0.vhd:104]
+INFO: [Synth 8-638] synthesizing module 'NCA' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:33]
+INFO: [Synth 8-3491] module 'NCA_ADSR_Envelope_0_0' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_ADSR_Envelope_0_0.vhd:56' bound to instance 'ADSR_Envelope_0' of component 'NCA_ADSR_Envelope_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'NCA_ADSR_Envelope_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_ADSR_Envelope_0_0.vhd:66]
+INFO: [Synth 8-3491] module 'ADSR_Envelope' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:10' bound to instance 'U0' of component 'ADSR_Envelope' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_ADSR_Envelope_0_0.vhd:91]
+INFO: [Synth 8-638] synthesizing module 'ADSR_Envelope' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:21]
+WARNING: [Synth 8-614] signal 'w_Attack' is read in the process but is not in the sensitivity list [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:56]
+WARNING: [Synth 8-614] signal 'w_Decay' is read in the process but is not in the sensitivity list [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:56]
+WARNING: [Synth 8-614] signal 'w_Sustain' is read in the process but is not in the sensitivity list [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:56]
+WARNING: [Synth 8-614] signal 'w_Release' is read in the process but is not in the sensitivity list [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'ADSR_Envelope' (1#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'NCA_ADSR_Envelope_0_0' (2#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_ADSR_Envelope_0_0.vhd:66]
+INFO: [Synth 8-3491] module 'NCA_DDS_0_0' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_DDS_0_0.vhd:56' bound to instance 'DDS_0' of component 'NCA_DDS_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'NCA_DDS_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_DDS_0_0.vhd:67]
+	Parameter g_ACC_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'DDS' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/DDS.vhd:14' bound to instance 'U0' of component 'DDS' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_DDS_0_0.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'DDS' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/DDS.vhd:28]
+	Parameter g_ACC_WIDTH bound to: 24 - type: integer 
+	Parameter g_ACC_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'NCO' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCO.vhd:15' bound to instance 'NCO_1' of component 'NCO' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/DDS.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'NCO' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCO.vhd:28]
+	Parameter g_ACC_WIDTH bound to: 24 - type: integer 
+	Parameter g_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'Accumulator' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/Accumulator.vhd:10' bound to instance 'Acc_1' of component 'Accumulator' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCO.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'Accumulator' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/Accumulator.vhd:22]
+	Parameter g_WIDTH bound to: 24 - type: integer 
+WARNING: [Synth 8-614] signal 'i_Updown' is read in the process but is not in the sensitivity list [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/Accumulator.vhd:40]
+WARNING: [Synth 8-614] signal 'r_Dir' is read in the process but is not in the sensitivity list [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/Accumulator.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'Accumulator' (3#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/Accumulator.vhd:22]
+INFO: [Synth 8-3491] module 'SineLUT_ROM' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/SineLUT_ROM.vhd:16' bound to instance 'SineROM_1' of component 'SineLUT_ROM' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCO.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'SineLUT_ROM' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/SineLUT_ROM.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'SineLUT_ROM' (4#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/SineLUT_ROM.vhd:26]
+INFO: [Synth 8-226] default block is never used [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCO.vhd:105]
+INFO: [Synth 8-256] done synthesizing module 'NCO' (5#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCO.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'DDS' (6#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/DDS.vhd:28]
+INFO: [Synth 8-256] done synthesizing module 'NCA_DDS_0_0' (7#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_DDS_0_0.vhd:67]
+INFO: [Synth 8-3491] module 'NCA_mult_gen_0_0' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/synth/NCA_mult_gen_0_0.vhd:59' bound to instance 'mult_gen_0' of component 'NCA_mult_gen_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:125]
+INFO: [Synth 8-638] synthesizing module 'NCA_mult_gen_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/synth/NCA_mult_gen_0_0.vhd:68]
+WARNING: [Synth 8-5640] Port 'zero_detect' is missing in component declaration [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/synth/NCA_mult_gen_0_0.vhd:71]
+WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/synth/NCA_mult_gen_0_0.vhd:71]
+	Parameter C_VERBOSITY bound to: 0 - type: integer 
+	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
+	Parameter C_OPTIMIZE_GOAL bound to: 1 - type: integer 
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_HAS_CE bound to: 0 - type: integer 
+	Parameter C_HAS_SCLR bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 3 - type: integer 
+	Parameter C_A_WIDTH bound to: 16 - type: integer 
+	Parameter C_A_TYPE bound to: 0 - type: integer 
+	Parameter C_B_WIDTH bound to: 16 - type: integer 
+	Parameter C_B_TYPE bound to: 1 - type: integer 
+	Parameter C_OUT_HIGH bound to: 31 - type: integer 
+	Parameter C_OUT_LOW bound to: 16 - type: integer 
+	Parameter C_MULT_TYPE bound to: 1 - type: integer 
+	Parameter C_CE_OVERRIDES_SCLR bound to: 0 - type: integer 
+	Parameter C_CCM_IMP bound to: 0 - type: integer 
+	Parameter C_B_VALUE bound to: 10000001 - type: string 
+	Parameter C_HAS_ZERO_DETECT bound to: 0 - type: integer 
+	Parameter C_ROUND_OUTPUT bound to: 0 - type: integer 
+	Parameter C_ROUND_PT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'mult_gen_v12_0_16' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/ipshared/ce84/hdl/mult_gen_v12_0_vh_rfs.vhd:21013' bound to instance 'U0' of component 'mult_gen_v12_0_16' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/synth/NCA_mult_gen_0_0.vhd:122]
+INFO: [Synth 8-256] done synthesizing module 'NCA_mult_gen_0_0' (13#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/synth/NCA_mult_gen_0_0.vhd:68]
+INFO: [Synth 8-3491] module 'NCA_mult_gen_1_0' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/synth/NCA_mult_gen_1_0.vhd:59' bound to instance 'mult_gen_1' of component 'NCA_mult_gen_1_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:132]
+INFO: [Synth 8-638] synthesizing module 'NCA_mult_gen_1_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/synth/NCA_mult_gen_1_0.vhd:68]
+WARNING: [Synth 8-5640] Port 'zero_detect' is missing in component declaration [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/synth/NCA_mult_gen_1_0.vhd:71]
+WARNING: [Synth 8-5640] Port 'pcasc' is missing in component declaration [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/synth/NCA_mult_gen_1_0.vhd:71]
+	Parameter C_VERBOSITY bound to: 0 - type: integer 
+	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
+	Parameter C_OPTIMIZE_GOAL bound to: 1 - type: integer 
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_HAS_CE bound to: 0 - type: integer 
+	Parameter C_HAS_SCLR bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 3 - type: integer 
+	Parameter C_A_WIDTH bound to: 16 - type: integer 
+	Parameter C_A_TYPE bound to: 1 - type: integer 
+	Parameter C_B_WIDTH bound to: 16 - type: integer 
+	Parameter C_B_TYPE bound to: 0 - type: integer 
+	Parameter C_OUT_HIGH bound to: 31 - type: integer 
+	Parameter C_OUT_LOW bound to: 16 - type: integer 
+	Parameter C_MULT_TYPE bound to: 1 - type: integer 
+	Parameter C_CE_OVERRIDES_SCLR bound to: 0 - type: integer 
+	Parameter C_CCM_IMP bound to: 0 - type: integer 
+	Parameter C_B_VALUE bound to: 10000001 - type: string 
+	Parameter C_HAS_ZERO_DETECT bound to: 0 - type: integer 
+	Parameter C_ROUND_OUTPUT bound to: 0 - type: integer 
+	Parameter C_ROUND_PT bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'mult_gen_v12_0_16' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/ipshared/ce84/hdl/mult_gen_v12_0_vh_rfs.vhd:21013' bound to instance 'U0' of component 'mult_gen_v12_0_16' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/synth/NCA_mult_gen_1_0.vhd:121]
+INFO: [Synth 8-256] done synthesizing module 'NCA_mult_gen_1_0' (14#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/synth/NCA_mult_gen_1_0.vhd:68]
+INFO: [Synth 8-3491] module 'NCA_sig2unsig_0_0' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_sig2unsig_0_0.vhd:56' bound to instance 'sig2unsig_0' of component 'NCA_sig2unsig_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'NCA_sig2unsig_0_0' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_sig2unsig_0_0.vhd:63]
+INFO: [Synth 8-3491] module 'sig2unsig' declared at 'c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/sig2unsig.vhd:5' bound to instance 'U0' of component 'sig2unsig' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_sig2unsig_0_0.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'sig2unsig' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/sig2unsig.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'sig2unsig' (15#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/sig2unsig.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'NCA_sig2unsig_0_0' (16#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA_sig2unsig_0_0.vhd:63]
+INFO: [Synth 8-256] done synthesizing module 'NCA' (17#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/NCA.vhd:33]
+INFO: [Synth 8-256] done synthesizing module 'system_NCA_0_0' (18#1) [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/synth/system_NCA_0_0.vhd:71]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1120.117 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ip/system_NCA_0_0/src/NCA_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1120.117 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1/dont_touch.xdc, line 15).
+Applied set_property KEEP_HIERARCHY = SOFT for U0/mult_gen_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for U0/mult_gen_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'r_ADSR_State_reg' in module 'ADSR_Envelope'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+                  attack |                              001 |                              001
+                   decay |                              010 |                              010
+                 sustain |                              011 |                              011
+                 release |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'r_ADSR_State_reg' using encoding 'sequential' in module 'ADSR_Envelope'
+WARNING: [Synth 8-327] inferring latch for variable 'w_Scalar_reg' [c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.gen/sources_1/bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd:61]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance U0/DDS_0/U0/NCO_1/SineROM_1/o_Data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    57|
+|2     |DSP48E1  |     3|
+|4     |LUT1     |    67|
+|5     |LUT2     |    85|
+|6     |LUT3     |     8|
+|7     |LUT4     |   116|
+|8     |LUT5     |   102|
+|9     |LUT6     |    34|
+|10    |RAMB18E1 |     1|
+|11    |FDRE     |    86|
+|12    |LD       |    24|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:40 . Memory (MB): peak = 1120.117 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1120.117 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1120.117 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 85 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1120.117 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 24 instances were transformed.
+  LD => LDCE: 24 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+61 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 1120.117 ; gain = 88.504
+INFO: [Common 17-1381] The checkpoint 'C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1/system_NCA_0_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP system_NCA_0_0, cache-ID = 3a9679c8afb8323e
+INFO: [Coretcl 2-1174] Renamed 16 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vivado_ws/Zynth.runs/system_NCA_0_0_synth_1/system_NCA_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file system_NCA_0_0_utilization_synth.rpt -pb system_NCA_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 15 19:45:39 2021...

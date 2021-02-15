@@ -1,0 +1,27 @@
+vhdl xil_defaultlib  \
+"../../../bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0_sim_netlist.vhdl" \
+"../../../bd/system/ip/system_proc_sys_reset_0_0/sim/system_proc_sys_reset_0_0.vhd" \
+"../../../bd/system/ip/system_Note_Driver_0_0/sim/system_Note_Driver_0_0.vhd" \
+"../../../bd/system/ip/system_Note_Config_0_0/sim/system_Note_Config_0_0.vhd" \
+"../../../bd/system/ip/system_Note_Generator_0_0/sim/system_Note_Generator_0_0.vhd" \
+"../../../bd/system/ip/system_I2S_Tx_0_0/sim/system_I2S_Tx_0_0.vhd" \
+"../../../bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_0_0/sim/NCA_mult_gen_0_0.vhd" \
+"../../../bd/system/ip/system_NCA_0_0/src/NCA_mult_gen_1_0/sim/NCA_mult_gen_1_0.vhd" \
+"../../../bd/system/ipshared/3cb1/sim/NCA_sig2unsig_0_0.vhd" \
+"../../../bd/system/ipshared/3cb1/sim/NCA_ADSR_Envelope_0_0.vhd" \
+"../../../bd/system/ipshared/3cb1/sim/NCA_DDS_0_0.vhd" \
+"../../../bd/system/ipshared/3cb1/src/sig2unsig.vhd" \
+"../../../bd/system/ipshared/3cb1/src/ADSR_Envelope.vhd" \
+"../../../bd/system/ipshared/3cb1/src/Accumulator.vhd" \
+"../../../bd/system/ipshared/3cb1/src/NCO.vhd" \
+"../../../bd/system/ipshared/3cb1/src/SineLUT_ROM.vhd" \
+"../../../bd/system/ipshared/3cb1/src/DDS.vhd" \
+"../../../bd/system/ipshared/3cb1/sim/NCA.vhd" \
+"../../../bd/system/ip/system_NCA_0_0/sim/system_NCA_0_0.vhd" \
+"../../../bd/system/ip/system_Debounce_Switch_0_0/sim/system_Debounce_Switch_0_0.vhd" \
+"../../../bd/system/ip/system_Debounce_Switch_1_0/sim/system_Debounce_Switch_1_0.vhd" \
+"../../../bd/system/ip/system_Debounce_Switch_2_0/sim/system_Debounce_Switch_2_0.vhd" \
+"../../../bd/system/ip/system_Debounce_Switch_3_0/sim/system_Debounce_Switch_3_0.vhd" \
+"../../../bd/system/sim/system.vhd" \
+
+nosort

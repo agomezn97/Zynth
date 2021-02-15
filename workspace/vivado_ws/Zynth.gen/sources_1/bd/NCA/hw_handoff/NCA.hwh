@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Feb 15 19:28:17 2021" VIVADOVERSION="2020.2">
+
+  <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="NCA" PACKAGE="clg400" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" LEFT="15" NAME="i_NoteIn" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_i_NoteIn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mult_gen_1" PORT="B"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="o_NCA_Note" RIGHT="0" SIGIS="data" SIGNAME="mult_gen_0_P">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mult_gen_0" PORT="P"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="12288000" DIR="I" NAME="i_MCLK" SIGIS="clk" SIGNAME="External_Ports_i_MCLK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ADSR_Envelope_0" PORT="i_Clk"/>
+        <CONNECTION INSTANCE="mult_gen_1" PORT="CLK"/>
+        <CONNECTION INSTANCE="mult_gen_0" PORT="CLK"/>
+        <CONNECTION INSTANCE="DDS_0" PORT="i_Clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="i_En_LFO" SIGIS="undef" SIGNAME="External_Ports_i_En_LFO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DDS_0" PORT="i_Enable"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="i_Amp_LFO" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_Amp_LFO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DDS_0" PORT="i_Amp"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="23" NAME="i_FTW_LFO" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_FTW_LFO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DDS_0" PORT="i_FTW"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="1" NAME="i_WaveSel_LFO" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_WaveSel_LFO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="DDS_0" PORT="i_WaveSelect"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="15" NAME="i_ADSR_Param" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_ADSR_Param">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ADSR_Envelope_0" PORT="i_ADSR_Param"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="i_NoteOn" SIGIS="undef" SIGNAME="External_Ports_i_NoteOn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ADSR_Envelope_0" PORT="i_NoteOn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="o_NoteFree" SIGIS="undef" SIGNAME="ADSR_Envelope_0_o_NoteFree">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ADSR_Envelope_0" PORT="o_NoteFree"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ADSR_Envelope_0" HWVERSION="1.0" INSTANCE="ADSR_Envelope_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ADSR_Envelope" VLNV="xilinx.com:module_ref:ADSR_Envelope:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="NCA_ADSR_Envelope_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="12288000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="External_Ports_i_MCLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_MCLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_NoteOn" SIGIS="undef" SIGNAME="External_Ports_i_NoteOn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_NoteOn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="i_ADSR_Param" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_ADSR_Param">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_ADSR_Param"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_NoteFree" SIGIS="undef" SIGNAME="ADSR_Envelope_0_o_NoteFree">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="o_NoteFree"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="o_Scalar" RIGHT="0" SIGIS="undef" SIGNAME="ADSR_Envelope_0_o_Scalar">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mult_gen_0" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/DDS_0" HWVERSION="1.0" INSTANCE="DDS_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DDS" VLNV="xilinx.com:module_ref:DDS:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="g_ACC_WIDTH" VALUE="24"/>
+        <PARAMETER NAME="Component_Name" VALUE="NCA_DDS_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="12288000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="External_Ports_i_MCLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_MCLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_Enable" SIGIS="undef" SIGNAME="External_Ports_i_En_LFO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_En_LFO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="i_FTW" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_FTW_LFO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_FTW_LFO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_Amp" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_Amp_LFO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_Amp_LFO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="i_WaveSelect" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_i_WaveSel_LFO">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_WaveSel_LFO"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="o_Wave" RIGHT="0" SIGIS="undef" SIGNAME="DDS_0_o_Wave">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sig2unsig_0" PORT="i_Signed"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="16" FULLNAME="/mult_gen_0" HWVERSION="12.0" INSTANCE="mult_gen_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mult_gen" VLNV="xilinx.com:ip:mult_gen:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=mult_gen;v=v12_0;d=pg108-mult-gen.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_MODEL_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPTIMIZE_GOAL" VALUE="1"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="3"/>
+        <PARAMETER NAME="C_A_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_OUT_HIGH" VALUE="31"/>
+        <PARAMETER NAME="C_OUT_LOW" VALUE="16"/>
+        <PARAMETER NAME="C_MULT_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_CCM_IMP" VALUE="0"/>
+        <PARAMETER NAME="C_B_VALUE" VALUE="10000001"/>
+        <PARAMETER NAME="C_HAS_ZERO_DETECT" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_OUTPUT" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_PT" VALUE="0"/>
+        <PARAMETER NAME="InternalUser" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="NCA_mult_gen_0_0"/>
+        <PARAMETER NAME="MultType" VALUE="Parallel_Multiplier"/>
+        <PARAMETER NAME="PortAType" VALUE="Signed"/>
+        <PARAMETER NAME="PortAWidth" VALUE="16"/>
+        <PARAMETER NAME="PortBType" VALUE="Unsigned"/>
+        <PARAMETER NAME="PortBWidth" VALUE="16"/>
+        <PARAMETER NAME="ConstValue" VALUE="129"/>
+        <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
+        <PARAMETER NAME="Multiplier_Construction" VALUE="Use_Mults"/>
+        <PARAMETER NAME="OptGoal" VALUE="Speed"/>
+        <PARAMETER NAME="Use_Custom_Output_Width" VALUE="true"/>
+        <PARAMETER NAME="OutputWidthHigh" VALUE="31"/>
+        <PARAMETER NAME="OutputWidthLow" VALUE="16"/>
+        <PARAMETER NAME="UseRounding" VALUE="false"/>
+        <PARAMETER NAME="RoundPoint" VALUE="0"/>
+        <PARAMETER NAME="PipeStages" VALUE="3"/>
+        <PARAMETER NAME="ClockEnable" VALUE="false"/>
+        <PARAMETER NAME="SyncClear" VALUE="false"/>
+        <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
+        <PARAMETER NAME="ZeroDetect" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="12288000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_i_MCLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_MCLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="mult_gen_1_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mult_gen_1" PORT="P"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="ADSR_Envelope_0_o_Scalar">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ADSR_Envelope_0" PORT="o_Scalar"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="mult_gen_0_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="o_NCA_Note"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="16" FULLNAME="/mult_gen_1" HWVERSION="12.0" INSTANCE="mult_gen_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mult_gen" VLNV="xilinx.com:ip:mult_gen:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=mult_gen;v=v12_0;d=pg108-mult-gen.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_MODEL_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPTIMIZE_GOAL" VALUE="1"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="zynq"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="3"/>
+        <PARAMETER NAME="C_A_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_A_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OUT_HIGH" VALUE="31"/>
+        <PARAMETER NAME="C_OUT_LOW" VALUE="16"/>
+        <PARAMETER NAME="C_MULT_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_CCM_IMP" VALUE="0"/>
+        <PARAMETER NAME="C_B_VALUE" VALUE="10000001"/>
+        <PARAMETER NAME="C_HAS_ZERO_DETECT" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_OUTPUT" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_PT" VALUE="0"/>
+        <PARAMETER NAME="InternalUser" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="NCA_mult_gen_1_0"/>
+        <PARAMETER NAME="MultType" VALUE="Parallel_Multiplier"/>
+        <PARAMETER NAME="PortAType" VALUE="Unsigned"/>
+        <PARAMETER NAME="PortAWidth" VALUE="16"/>
+        <PARAMETER NAME="PortBType" VALUE="Signed"/>
+        <PARAMETER NAME="PortBWidth" VALUE="16"/>
+        <PARAMETER NAME="ConstValue" VALUE="129"/>
+        <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
+        <PARAMETER NAME="Multiplier_Construction" VALUE="Use_Mults"/>
+        <PARAMETER NAME="OptGoal" VALUE="Speed"/>
+        <PARAMETER NAME="Use_Custom_Output_Width" VALUE="true"/>
+        <PARAMETER NAME="OutputWidthHigh" VALUE="31"/>
+        <PARAMETER NAME="OutputWidthLow" VALUE="16"/>
+        <PARAMETER NAME="UseRounding" VALUE="false"/>
+        <PARAMETER NAME="RoundPoint" VALUE="0"/>
+        <PARAMETER NAME="PipeStages" VALUE="3"/>
+        <PARAMETER NAME="ClockEnable" VALUE="false"/>
+        <PARAMETER NAME="SyncClear" VALUE="false"/>
+        <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
+        <PARAMETER NAME="ZeroDetect" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="12288000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_i_MCLK">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_MCLK"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="sig2unsig_0_o_Unsign">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sig2unsig_0" PORT="o_Unsign"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_i_NoteIn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i_NoteIn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="mult_gen_1_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mult_gen_0" PORT="A"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/sig2unsig_0" HWVERSION="1.0" INSTANCE="sig2unsig_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="sig2unsig" VLNV="xilinx.com:module_ref:sig2unsig:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="NCA_sig2unsig_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="i_Signed" RIGHT="0" SIGIS="undef" SIGNAME="DDS_0_o_Wave">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="DDS_0" PORT="o_Wave"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="o_Unsign" RIGHT="0" SIGIS="undef" SIGNAME="sig2unsig_0_o_Unsign">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mult_gen_1" PORT="A"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

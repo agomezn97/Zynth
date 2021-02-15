@@ -1,0 +1,35 @@
+22:00:32 **** Incremental Build of configuration Debug for project SysConfig ****
+make all 
+make --no-print-directory pre-build
+a9-linaro-pre-build-step
+' '
+make --no-print-directory main-build
+'Building file: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/codec.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\anton\Desktop\RTLogik\Repositories\Zynth\source\sw\h" -c -fmessage-length=0 -MT"src/codec.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vitis_ws/Zynth_hw/export/Zynth_hw/sw/Zynth_hw/standalone_domain/bspinclude/include -MMD -MP -MF"src/codec.d" -MT"src/codec.o" -o "src/codec.o" "C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/codec.c"
+'Finished building: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/codec.c'
+' '
+'Building file: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/i2c.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\anton\Desktop\RTLogik\Repositories\Zynth\source\sw\h" -c -fmessage-length=0 -MT"src/i2c.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vitis_ws/Zynth_hw/export/Zynth_hw/sw/Zynth_hw/standalone_domain/bspinclude/include -MMD -MP -MF"src/i2c.d" -MT"src/i2c.o" -o "src/i2c.o" "C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/i2c.c"
+'Finished building: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/i2c.c'
+' '
+'Building file: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -I"C:\Users\anton\Desktop\RTLogik\Repositories\Zynth\source\sw\h" -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vitis_ws/Zynth_hw/export/Zynth_hw/sw/Zynth_hw/standalone_domain/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/main.c"
+'Finished building: C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/main.c'
+' '
+'Building target: SysConfig.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,C:/Users/anton/Desktop/RTLogik/Repositories/Zynth/source/sw/src/lscript.ld -LC:/Users/anton/Desktop/RTLogik/Repositories/Zynth/workspace/vitis_ws/Zynth_hw/export/Zynth_hw/sw/Zynth_hw/standalone_domain/bsplib/lib -o "SysConfig.elf"  ./src/codec.o ./src/i2c.o ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: SysConfig.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size SysConfig.elf  |tee "SysConfig.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  19956	   1144	   8232	  29332	   7294	SysConfig.elf
+'Finished building: SysConfig.elf.size'
+' '
+
+22:00:32 Build Finished (took 741ms)
+

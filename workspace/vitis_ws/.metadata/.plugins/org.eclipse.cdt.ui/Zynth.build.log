@@ -1,0 +1,6 @@
+22:00:33 **** Incremental Build of configuration Emulation-SW for project Zynth ****
+make all 
+Package not supported, if the system project is in Emulation Target, and only Baremetal Or Embedded Linux Applications present
+
+22:00:33 Build Finished (took 93ms)
+

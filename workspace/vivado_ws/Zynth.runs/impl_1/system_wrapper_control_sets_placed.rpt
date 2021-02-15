@@ -1,0 +1,90 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Feb 15 21:56:24 2021
+| Host         : DESKTOP-D10FM1T running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file system_wrapper_control_sets_placed.rpt
+| Design       : system_wrapper
+| Device       : xc7z020
+-------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    12 |
+|    Minimum number of control sets                        |    12 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    46 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    12 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    10 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              88 |           39 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             194 |           54 |
+| Yes          | No                    | No                     |              32 |            7 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              24 |            6 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------------------------+----------------------------------------------+-------------------------------------------------------------+------------------+----------------+--------------+
+|                    Clock Signal                   |                 Enable Signal                |                       Set/Reset Signal                      | Slice Load Count | Bel Load Count | Bels / Slice |
++---------------------------------------------------+----------------------------------------------+-------------------------------------------------------------+------------------+----------------+--------------+
+| ~system_i/processing_system7_0/inst/FCLK_CLK0     |                                              |                                                             |                1 |              3 |         3.00 |
+| ~system_i/I2S_Tx_0/U0/o_BCLK_BUFG                 |                                              |                                                             |                4 |              7 |         1.75 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              | system_i/Debounce_Switch_2/U0/p_0_in                        |                5 |             17 |         3.40 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              | system_i/Debounce_Switch_3/U0/p_0_in                        |                5 |             17 |         3.40 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              | system_i/Debounce_Switch_0/U0/p_0_in                        |                5 |             17 |         3.40 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              | system_i/Debounce_Switch_1/U0/p_0_in                        |                5 |             17 |         3.40 |
+|  system_i/NCA_0/U0/ADSR_Envelope_0/U0/w_Scalar__0 |                                              |                                                             |               10 |             24 |         2.40 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     | system_i/NCA_0/U0/ADSR_Envelope_0/U0/w_Count | system_i/NCA_0/U0/ADSR_Envelope_0/U0/r_Count[23]_i_1__0_n_0 |                6 |             24 |         4.00 |
+| ~system_i/I2S_Tx_0/U0/o_BCLK_BUFG                 | system_i/I2S_Tx_0/U0/r_SmpFlag               |                                                             |                7 |             32 |         4.57 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              | system_i/NCA_0/U0/DDS_0/U0/NCO_1/Acc_1/SR[0]                |                9 |             34 |         3.78 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              |                                                             |               24 |             54 |         2.25 |
+|  system_i/processing_system7_0/inst/FCLK_CLK0     |                                              | system_i/Note_Generator_0/U0/DDS_2/NCO_1/Acc_1/SR[0]        |               25 |             92 |         3.68 |
++---------------------------------------------------+----------------------------------------------+-------------------------------------------------------------+------------------+----------------+--------------+
+
+
