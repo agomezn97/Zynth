@@ -1,7 +1,0 @@
-/*Zynth_hw*/
-the_ROM_image:
-{
-  [bootloader]<Zynth_hw/boot/fsbl.elf>
-   <bitstream> 
-  <elf,ps7_cortexa9_0>
-}
