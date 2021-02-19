@@ -5,7 +5,7 @@
 
 #include "zynth.h"
 
-void init_i2c0() {
+void I2C0_init() {
 
 	/* Reset Controller */
 	I2C_RST_CTRL |= I2C0_RST;

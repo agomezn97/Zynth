@@ -6,10 +6,6 @@
 #ifndef I2C_H_
 #define I2C_H_
 
-/***************************** Include Files **********************************/
-#include "hwcfg.h"
-#include <stdint.h>
-
 /************************** Register Definitions ******************************/
 #ifndef _RW_TYPE_
 	#define _RW_TYPE_
@@ -224,7 +220,7 @@ typedef struct {
 /*
  * Initialize I2C0 module as Master
  */
-void init_i2c0();
+void I2C0_init();
 
 /*
  * Send messages through I2C0

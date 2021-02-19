@@ -11,10 +11,14 @@ int main()
 {
 
 	/*******************************************
-	 * 	HARDWARE INITIALIZATION		   *
+	 * 	       HARDWARE INITIALIZATION		   *
 	 *******************************************/
+	HW_init();
+	CODEC_init();
+	LCD_init();
 	
-	init_codec();
+
+	LCD_send_str("Hello World!");
 
 	while(1);
 

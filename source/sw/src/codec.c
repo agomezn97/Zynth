@@ -5,17 +5,11 @@
 
 #include "zynth.h"
 
-void init_codec() {
-
-	/* I2C0 Module Initialization */
-	init_i2c0();
+void CODEC_init() {
 
 	/* Configure CODEC Address */
-	const uint8_t ADDR0 = DATA_2_RO->bit.EMIO_GPIO_0;
-	const uint8_t ADDR1 = DATA_2_RO->bit.EMIO_GPIO_1;
-
-	uint8_t codecAddr = 0x38;		 // Codec I2C Address = [0|1|1|1|0|ADDR1|ADDR0]
-	codecAddr |= (ADDR0 | (ADDR1 << 1));	 // PASAR A VARIABLE GLOBAL!!
+	uint8_t codecAddr = 0x38;                                // Codec I2C Address = [0|1|1|1|0|ADDR1|ADDR0]
+	codecAddr |= (EMIO_RO->ADDR0 | (EMIO_RO->ADDR1 << 1));	 // PASAR A VARIABLE GLOBAL!!
 
 	/* Register Configuration */
 	// USAR MEMCPY EN VEZ DE CREAR TANTAS VARIABLES!!!!

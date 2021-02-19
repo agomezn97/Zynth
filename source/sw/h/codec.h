@@ -53,7 +53,18 @@
 #define DACEN	0x03
 
 /************************** Function Prototypes *******************************/
-void init_codec(void);
+void CODEC_init(void);
+
+/************************** Registers Definitions *****************************/
+
+/* Input Data (GPIO Bank2, EMIO) */
+typedef struct EMIO_RO_BITS {
+	volatile const uint32_t ADDR0:1;		// EMIO[0]
+	volatile const uint32_t ADDR1:1;		// EMIO[1]
+} EMIO_RO_REG;
+
+#define DATA_2_RO_ADDR  ((uint32_t) 0xE000A068)
+#define EMIO_RO         ((EMIO_RO_REG *) DATA_2_RO_ADDR)
 
 
 #endif /* CODEC_H_ */

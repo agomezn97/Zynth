@@ -6,17 +6,13 @@
 #ifndef HWCFG_H_
 #define HWCFG_H_
 
-/***************************** Include Files **********************************/
-#include "i2c.h"
-#include <stdint.h>
-
-/************************** Constant Definitions ******************************/
+/*********************** Macro Register Definition ****************************/
 #define HWREG8(x)    (*((volatile  uint8_t *)(x)))
 #define HWREG16(x)   (*((volatile uint16_t *)(x)))
 #define HWREG32(x)   (*((volatile uint32_t *)(x)))
 
 /************************** Function Prototypes *******************************/
-
+void HW_init(void);
 
 /************************ Registers R/W Functions *****************************/
 static inline void WriteReg8(uint32_t * Addr, uint8_t Value)
@@ -50,30 +46,14 @@ static inline uint32_t ReadReg32(uint32_t * Addr)
 }
 
 /************************** Registers Definitions *****************************/
-#ifndef _RW_TYPE_
-	#define _RW_TYPE_
-	#define __RW  volatile
-	#define __R   volatile const
-	#define __W
-#endif
 
 /* AMBA Peripheral Clock Control */
 #define APER_CLK_CTRL HWREG32(0xF800012C)
-
-/* GPIO Registers */
-struct DATA_2_RO_BITS {
-	__R uint32_t EMIO_GPIO_0:1;
-	__R uint32_t EMIO_GPIO_1:1;
-};
-
-typedef union {
-	__R uint32_t all;
-	struct DATA_2_RO_BITS bit;
-} DATA_2_RO_REG;
-
-#define DATA_2_RO_ADDR  ((uint32_t) 0xE000A068)
-#define DATA_2_RO       ((DATA_2_RO_REG *) DATA_2_RO_ADDR)
-
+/* GPIO Reset Control */
+#define GPIO_RST_CTRL HWREG32(0xF800022C)
+/* Direction Mode & Output Enable (GPIO Bank2, EMIO) */
+#define EMIO_2_DIRM   HWREG32(0xE000A284)
+#define EMIO_2_OEN    HWREG32(0xE000A288)
 
 
 #endif /* HWCFG_H_ */
