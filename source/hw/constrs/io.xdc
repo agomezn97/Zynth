@@ -57,3 +57,29 @@ set_property PACKAGE_PIN T16 [get_ports {GPIO_EMIO_tri_io[11]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {GPIO_EMIO_tri_io[11]}]
 set_property PACKAGE_PIN R17 [get_ports {GPIO_EMIO_tri_io[12]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {GPIO_EMIO_tri_io[12]}]
+
+
+# --- Encoder ---
+set_property PACKAGE_PIN Y17 [get_ports enc1_A]
+set_property IOSTANDARD LVCMOS33 [get_ports enc1_A]
+set_property PACKAGE_PIN Y16 [get_ports enc1_B]
+set_property IOSTANDARD LVCMOS33 [get_ports enc1_B]
+set_property IOSTANDARD LVCMOS33 [get_ports enc1_btn]
+set_property PACKAGE_PIN Y19 [get_ports enc1_btn]
+
+
+set_property PACKAGE_PIN T11 [get_ports Ccw]
+set_property PACKAGE_PIN T10 [get_ports Cw]
+set_property IOSTANDARD LVCMOS33 [get_ports Ccw]
+set_property IOSTANDARD LVCMOS33 [get_ports Cw]
+set_property IOSTANDARD LVCMOS33 [get_ports Btn]
+set_property PACKAGE_PIN Y14 [get_ports Btn]
+
+set_property IOSTANDARD LVCMOS33 [get_ports {o_LED[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_LED[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_LED[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {o_LED[0]}]
+set_property PACKAGE_PIN R14 [get_ports {o_LED[0]}]
+set_property PACKAGE_PIN P14 [get_ports {o_LED[1]}]
+set_property PACKAGE_PIN N16 [get_ports {o_LED[2]}]
+set_property PACKAGE_PIN M14 [get_ports {o_LED[3]}]

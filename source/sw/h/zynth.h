@@ -13,8 +13,9 @@
 #include "i2c.h"
 #include "codec.h"
 #include "lcd.h"
+#include "hmi.h"
 
-/**************************** Inline Functions ******************************/
+/************************** Inline Functions ******************************/
 static inline void delay_cycles(uint32_t nCycles)
 {
 	uint32_t i = 0;
