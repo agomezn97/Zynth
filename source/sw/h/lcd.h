@@ -39,11 +39,11 @@ void LCD_enable();
 
 /* Output Data (GPIO Bank2, EMIO) */
 typedef struct LCD_BITS {
-	__R  uint32_t RSVD:2;		// EMIO[0-1]  - Reserved (for CODEC)
-	__RW uint32_t RS:1;			// EMIO[2]    - Register Select
-	__RW uint32_t RW:1;			// EMIO[3]    - Read/Write
-	__RW uint32_t EN:1;			// EMIO[4]    - Enable
-	__RW uint32_t DB:8;			// EMIO[5-11] - Data Bus 0-7
+	__R  uint32_t RSVD:2;      // EMIO[0-1]  - Reserved (for CODEC)
+	__RW uint32_t RS:1;        // EMIO[2]    - Register Select
+	__RW uint32_t RW:1;        // EMIO[3]    - Read/Write
+	__RW uint32_t EN:1;        // EMIO[4]    - Enable
+	__RW uint32_t DB:8;        // EMIO[5-11] - Data Bus 0-7
 } LCD_BITS;
 
 #define DATA_2_ADDR  ((uint32_t) 0xE000A048)
