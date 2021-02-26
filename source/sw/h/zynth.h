@@ -8,6 +8,7 @@
 
 /**************************** Include Files ******************************/
 #include <stdint.h>
+#include <xil_exception.h>
 
 #include "hwcfg.h"
 #include "i2c.h"

@@ -6,7 +6,8 @@
 
 #include "zynth.h"
 
-void LCD_init() {
+void LCD_init()
+{
 
 	/* Send initialization commands */
 	LCD_cmd(TWO_LINE_MODE);
@@ -15,7 +16,8 @@ void LCD_init() {
 	LCD_cmd(INCREMENT_MODE);
 }
 
-void LCD_cmd(uint8_t CMD) {
+void LCD_cmd(uint8_t CMD)
+{
 
 	LCD->RS = 0;	       // Select Instruction Register
 	LCD->DB = CMD;	       // Send Command to Data Bus pins
@@ -27,7 +29,8 @@ void LCD_cmd(uint8_t CMD) {
 	LCD->EN = 0;
 }
 
-void LCD_send_str(char *str) {
+void LCD_send_str(char *str)
+{
 
 	uint8_t i = 0;
 
@@ -38,7 +41,8 @@ void LCD_send_str(char *str) {
 	}
 }
 
-void LCD_send_char(char data) {
+void LCD_send_char(char data)
+{
 
 	LCD->RS = 1;           // Select Data Register
 	LCD->DB = data;        // Send Data to Data Bus pins

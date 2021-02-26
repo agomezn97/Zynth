@@ -49,7 +49,7 @@ GUI_t GUI = { .menuID = 0,
 void enter_menu(void)
 {
 
-	if (GUI.menuID == 0) {                     // Zynth (main menu)
+	if (GUI.menuID == 0) {        // Zynth (main menu)
 		if (GUI.menu[GUI.menuID].itemID == 0) {
 			GUI.menuID = 1;
 		} else if (GUI.menu[GUI.menuID].itemID == 1) {
@@ -59,21 +59,21 @@ void enter_menu(void)
 		}
 	}
 
-	else if (GUI.menuID == 1) {                // Note Config
+	else if (GUI.menuID == 1) {   // Note Config
 		if (GUI.menu[GUI.menuID].itemID == GUI.menu[GUI.menuID].itemID_max) {
 			GUI.menu[GUI.menuID].itemID = 0;
 			GUI.menuID = 0;
 		}
 	}
 
-	else if (GUI.menuID == 2) {                // LFO
+	else if (GUI.menuID == 2) {   // LFO
 		if (GUI.menu[GUI.menuID].itemID == GUI.menu[GUI.menuID].itemID_max) {
 			GUI.menu[GUI.menuID].itemID = 0;
 			GUI.menuID = 0;
 		}
 	}
 
-	else if (GUI.menuID == 3) {                // ADSR
+	else if (GUI.menuID == 3) {    // ADSR
 		if (GUI.menu[GUI.menuID].itemID == GUI.menu[GUI.menuID].itemID_max) {
 			GUI.menu[GUI.menuID].itemID = 0;
 			GUI.menuID = 0;
