@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER Note_Config
+	OPTION supported_peripherals = (Note_Config);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = Note_Config;
+END DRIVER

@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Mon Feb 15 19:28:17 2021
+--Date        : Mon Mar  1 19:38:08 2021
 --Host        : DESKTOP-D10FM1T running 64-bit major release  (build 9200)
 --Command     : generate_target NCA.bd
 --Design      : NCA
@@ -31,12 +31,6 @@ entity NCA is
 end NCA;
 
 architecture STRUCTURE of NCA is
-  component NCA_sig2unsig_0_0 is
-  port (
-    i_Signed : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    o_Unsign : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component NCA_sig2unsig_0_0;
   component NCA_ADSR_Envelope_0_0 is
   port (
     i_Clk : in STD_LOGIC;
@@ -46,6 +40,16 @@ architecture STRUCTURE of NCA is
     o_Scalar : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component NCA_ADSR_Envelope_0_0;
+  component NCA_DDS_0_0 is
+  port (
+    i_Clk : in STD_LOGIC;
+    i_Enable : in STD_LOGIC;
+    i_FTW : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    i_Amp : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    i_WaveSelect : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    o_Wave : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component NCA_DDS_0_0;
   component NCA_mult_gen_0_0 is
   port (
     CLK : in STD_LOGIC;
@@ -62,16 +66,12 @@ architecture STRUCTURE of NCA is
     P : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component NCA_mult_gen_1_0;
-  component NCA_DDS_0_0 is
+  component NCA_sig2unsig_0_0 is
   port (
-    i_Clk : in STD_LOGIC;
-    i_Enable : in STD_LOGIC;
-    i_FTW : in STD_LOGIC_VECTOR ( 23 downto 0 );
-    i_Amp : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    i_WaveSelect : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    o_Wave : out STD_LOGIC_VECTOR ( 15 downto 0 )
+    i_Signed : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    o_Unsign : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  end component NCA_DDS_0_0;
+  end component NCA_sig2unsig_0_0;
   signal ADSR_Envelope_0_o_NoteFree : STD_LOGIC;
   signal ADSR_Envelope_0_o_Scalar : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal B_0_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -89,7 +89,7 @@ architecture STRUCTURE of NCA is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of i_MCLK : signal is "xilinx.com:signal:clock:1.0 CLK.I_MCLK CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of i_MCLK : signal is "XIL_INTERFACENAME CLK.I_MCLK, CLK_DOMAIN NCA_i_Clk_0, FREQ_HZ 12288000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.000";
+  attribute X_INTERFACE_PARAMETER of i_MCLK : signal is "XIL_INTERFACENAME CLK.I_MCLK, CLK_DOMAIN NCA_i_MCLK, FREQ_HZ 12288000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.000";
   attribute X_INTERFACE_INFO of i_NoteIn : signal is "xilinx.com:signal:data:1.0 DATA.I_NOTEIN DATA";
   attribute X_INTERFACE_PARAMETER of i_NoteIn : signal is "XIL_INTERFACENAME DATA.I_NOTEIN, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of o_NCA_Note : signal is "xilinx.com:signal:data:1.0 DATA.O_NCA_NOTE DATA";
