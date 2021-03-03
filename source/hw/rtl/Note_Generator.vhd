@@ -39,6 +39,7 @@ architecture STRUCTURAL of Note_Generator is
     signal w_FFTW2, w_FFTW4 : Std_Logic_Vector(g_FFTW_WIDTH-1 downto 0);
     signal w_Wave1, w_Wave2, w_Wave3 : Std_Logic_Vector(15 downto 0);
     signal w_Note : Signed(15 downto 0);
+    signal w_Amp1, w_Amp2, w_Amp3 : Std_Logic_Vector(7 downto 0);
 
     signal r_Note : Signed(15 downto 0) := (others => '0');
 
@@ -57,7 +58,7 @@ begin --===================== ARCHITECTURE ===============================-
             i_Clk        => i_Clk,
             i_Enable     => i_Enable,
             i_FTW        => i_FFTW,
-            i_Amp        => i_Amp123(7 downto 0),
+            i_Amp        => w_Amp1,
             i_WaveSelect => i_WaveSel123(1 downto 0),
             --
             o_Wave       => w_Wave1
@@ -70,7 +71,7 @@ begin --===================== ARCHITECTURE ===============================-
             i_Clk        => i_Clk,
             i_Enable     => i_Enable,
             i_FTW        => w_FFTW2,
-            i_Amp        => i_Amp123(15 downto 8),
+            i_Amp        => w_Amp2,
             i_WaveSelect => i_WaveSel123(3 downto 2),
             --
             o_Wave       => w_Wave2
@@ -83,12 +84,34 @@ begin --===================== ARCHITECTURE ===============================-
             i_Clk        => i_Clk,
             i_Enable     => i_Enable,
             i_FTW        => w_FFTW4,
-            i_Amp        => i_Amp123(23 downto 16),
+            i_Amp        => w_Amp3,
             i_WaveSelect => i_WaveSel123(5 downto 4),
             --
             o_Wave       => w_Wave3
         );
 
+    --- Amplitude control to avoid overflow in note addition
+	AMP_CTRL: process(i_Amp123)
+	begin
+	   if (i_Amp123(15 downto 8) = "00000000" AND i_Amp123(23 downto 16) = "00000000") then
+	       w_Amp1 <= i_Amp123(7  downto 0);
+	       w_Amp2 <= i_Amp123(15 downto 8);
+	       w_Amp3 <= i_Amp123(23 downto 16);
+	   elsif (i_Amp123(15 downto 8) /= "00000000" AND i_Amp123(23 downto 16) = "00000000") then
+	       w_Amp1 <= "0" & i_Amp123(7 downto 1);
+	       w_Amp2 <= "0" & i_Amp123(15 downto 9);
+	       w_Amp3 <= i_Amp123(23 downto 16);
+	   elsif (w_Amp2 = "00000000" AND w_Amp3 /= "00000000") then
+	       w_Amp1 <= "0" & i_Amp123(7 downto 1);
+	       w_Amp2 <= i_Amp123(15 downto 8);
+	       w_Amp3 <= "0" & i_Amp123(23 downto 17);
+	   elsif (w_Amp2 /= "00000000" AND w_Amp3 /= "00000000") then
+	       w_Amp1 <= "00" & i_Amp123(7 downto 2);
+	       w_Amp2 <= "00" & i_Amp123(15 downto 10);
+	       w_Amp3 <= "00" & i_Amp123(23 downto 18);
+	   end if;	       
+	end process;
+	    
     -----------------------------------------------------
     -- NOTE MIXER
     -----------------------------------------------------

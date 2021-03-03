@@ -14,6 +14,7 @@
 /************************** Function Prototypes *******************************/
 void HW_init(void);
 void interrupt_init(void);
+void Note_Config_init(void);
 
 /************************ Registers R/W Functions *****************************
 static inline void WriteReg8(uint32_t * Addr, uint8_t Value)
