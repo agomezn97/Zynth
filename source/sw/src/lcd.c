@@ -14,6 +14,8 @@ void LCD_init()
 	LCD_cmd(DISPLAY_ON);
 	LCD_cmd(DISPLAY_CLEAR);
 	LCD_cmd(INCREMENT_MODE);
+
+	delay_cycles(2300000);
 }
 
 void LCD_cmd(uint8_t CMD)

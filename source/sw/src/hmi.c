@@ -86,7 +86,7 @@ GUI_t GUI =
 			  .menu[12].paramMenu.param_max = 0xFF,
 
 			  .menu[13].paramMenu.paramName = "LFO Frequency:",
-			  .menu[13].paramMenu.param = 0xFF,
+			  .menu[13].paramMenu.param = 0x0,
 			  .menu[13].paramMenu.param_max = 0xFFFFFF,					// AJUSTAR LIMITE REALISTA
 
 			  .menu[14].paramMenu.paramName = "LFO Wave:",
@@ -239,7 +239,7 @@ void enter_param()
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, SUSTAIN_OFFSET, GUI.menu[17].paramMenu.param);
 		GUI.menuID = 3;
 	} else if (GUI.menuID == 18) {   // Release
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, RELEASE_OFFSET, GUI.menu[17].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, RELEASE_OFFSET, GUI.menu[18].paramMenu.param);
 		GUI.menuID = 3;
 	}
 }

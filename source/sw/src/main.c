@@ -74,11 +74,11 @@ void ISR_Cw(void)
 {
 	if (GUI.menuID <= 5) {
 		if (GUI.menu[GUI.menuID].subMenu.itemID < GUI.menu[GUI.menuID].subMenu.itemID_max) {
-			GUI.menu[GUI.menuID].subMenu.itemID++; 													// = GUI.menu[GUI.menuID].subMenu.itemID + 1;
+			GUI.menu[GUI.menuID].subMenu.itemID++;
 		}
 	} else {
 		if (GUI.menu[GUI.menuID].paramMenu.param < GUI.menu[GUI.menuID].paramMenu.param_max) {
-			GUI.menu[GUI.menuID].paramMenu.param++;   												//= GUI.menu[GUI.menuID].subMenu.itemID + 1
+			GUI.menu[GUI.menuID].paramMenu.param++;
 		}
 	}
 
