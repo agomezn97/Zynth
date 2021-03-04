@@ -72,9 +72,11 @@ void IRQ_Handler(void *data)
  */
 void ISR_Cw(void)
 {
-	if (GUI.menuID <= 5) {
+	if (GUI.menuID <= 5 || GUI.menuID == 14 || GUI.menuID == 9 || GUI.menuID == 10 || GUI.menuID == 11) {
 		if (GUI.menu[GUI.menuID].subMenu.itemID < GUI.menu[GUI.menuID].subMenu.itemID_max) {
 			GUI.menu[GUI.menuID].subMenu.itemID++;
+		} else {
+			GUI.menu[GUI.menuID].subMenu.itemID = 0;
 		}
 	} else {
 		if (GUI.menu[GUI.menuID].paramMenu.param < GUI.menu[GUI.menuID].paramMenu.param_max) {
@@ -93,9 +95,11 @@ void ISR_Cw(void)
  */
 void ISR_Ccw(void)
 {
-	if (GUI.menuID <= 5) {
+	if (GUI.menuID <= 5 || GUI.menuID == 14 || GUI.menuID == 9 || GUI.menuID == 10 || GUI.menuID == 11) {
 		if (GUI.menu[GUI.menuID].subMenu.itemID > 0) {
 			GUI.menu[GUI.menuID].subMenu.itemID--;
+		} else {
+			GUI.menu[GUI.menuID].subMenu.itemID = GUI.menu[GUI.menuID].subMenu.itemID_max;
 		}
 	} else {
 		if (GUI.menu[GUI.menuID].paramMenu.param > 0) {
@@ -130,7 +134,7 @@ inline void refresh_lcd()
 {
 	char num[3];
 
-	if (GUI.menuID <= 5) {
+	if (GUI.menuID <= 5 || GUI.menuID == 14 || GUI.menuID == 9 || GUI.menuID == 10 || GUI.menuID == 11) {
 		LCD_cmd(DISPLAY_CLEAR);
 		LCD_cmd(RETURN_HOME);
 		LCD_send_str(GUI.menu[GUI.menuID].subMenu.menuName);

@@ -10,102 +10,118 @@ GUI_t GUI =
 {
 			  .menuID = 0,
 
-		      .menu[0].subMenu.menuName = "Zynth:",
+		      .menu[0].subMenu.menuName = "ZYNTH:",
 		      .menu[0].subMenu.itemID = 0,
 			  .menu[0].subMenu.itemID_max = 2,
-		      .menu[0].subMenu.itemName = { "Note Config",
-		    		                        "LFO",
-								            "ADSR" },
+		      .menu[0].subMenu.itemName = { " ~Note Config",
+		    		                        " ~LFO",
+								            " ~ADSR" },
 
-			  .menu[1].subMenu.menuName = "Note Config:",
+			  .menu[1].subMenu.menuName = "NOTE CONFIG:",
 		      .menu[1].subMenu.itemID = 0,
 			  .menu[1].subMenu.itemID_max = 2,
-		      .menu[1].subMenu.itemName = { "Amplitude",
-		    		                        "Wave Select",
-								            "Atras" },
+		      .menu[1].subMenu.itemName = { " ~Amplitude",
+		    		                        " ~Wave Select",
+								            " ~Back" },
 
 		      .menu[2].subMenu.menuName = "LFO:",
               .menu[2].subMenu.itemID = 0,
 			  .menu[2].subMenu.itemID_max = 3,
-              .menu[2].subMenu.itemName = { "Amplitude",
-		                                    "Frequency",
-					                        "Wave Select",
-					                        "Atras" },
+              .menu[2].subMenu.itemName = { " ~Amplitude",
+		                                    " ~Frequency",
+					                        " ~Wave Select",
+					                        " ~Back" },
 
               .menu[3].subMenu.menuName = "ADSR:",
               .menu[3].subMenu.itemID = 0,
 			  .menu[3].subMenu.itemID_max = 4,
-              .menu[3].subMenu.itemName = { "Attack",
-                                            "Decay",
-		                                    "Sustain",
-								        	"Release",
-		                                    "Atras" },
+              .menu[3].subMenu.itemName = { " ~Attack",
+                                            " ~Decay",
+		                                    " ~Sustain",
+								        	" ~Release",
+		                                    " ~Back" },
 
-			  .menu[4].subMenu.menuName = "Amplitude:",
+			  .menu[4].subMenu.menuName = "AMPLITUDE:",
               .menu[4].subMenu.itemID = 0,
 			  .menu[4].subMenu.itemID_max = 3,
-              .menu[4].subMenu.itemName = { "Fundamental",
-                                            "2nd Harmonic",
-		                                    "4th Harmonic",
-		                                    "Atras" },
+              .menu[4].subMenu.itemName = { " ~Fundamental",
+                                            " ~2nd Harmonic",
+		                                    " ~4th Harmonic",
+		                                    " ~Back" },
 
-			  .menu[5].subMenu.menuName = "Wave Select:",
+			  .menu[5].subMenu.menuName = "WAVE SELECT:",
 			  .menu[5].subMenu.itemID = 0,
 			  .menu[5].subMenu.itemID_max = 3,
-			  .menu[5].subMenu.itemName = { "Fundamental",
-			  					            "2nd Harmonic",
-								         	"4th Harmonic",
-								        	"Atras" },
+			  .menu[5].subMenu.itemName = { " ~Fundamental",
+			  					            " ~2nd Harmonic",
+								         	" ~4th Harmonic",
+								        	" ~Back" },
 
-			  .menu[6].paramMenu.paramName = "Fundamental Amp:",
+			  .menu[6].paramMenu.paramName = "FUNDAMENTAL AMP:",
 			  .menu[6].paramMenu.param = 0xF,
 			  .menu[6].paramMenu.param_max = 0xF,
 
-			  .menu[7].paramMenu.paramName = "2nd Harm. Amp:",
+			  .menu[7].paramMenu.paramName = "2nd HARM. AMP:",
 			  .menu[7].paramMenu.param = 0x0,
 			  .menu[7].paramMenu.param_max = 0xF,
 
-			  .menu[8].paramMenu.paramName = "3rd Harm. Amp:",
+			  .menu[8].paramMenu.paramName = "3rd HARM. AMP:",
 			  .menu[8].paramMenu.param = 0x0,
 			  .menu[8].paramMenu.param_max = 0xF,
 
-			  .menu[9].paramMenu.paramName = "Fundamental Wave:",
-			  .menu[9].paramMenu.param = 0x0,
-			  .menu[9].paramMenu.param_max = 0x3,
+			  .menu[9].subMenu.menuName = "FUNDAMENTAL WAVE:",
+              .menu[9].subMenu.itemID = 0,
+			  .menu[9].subMenu.itemID_max = 3,
+              .menu[9].subMenu.itemName = { "Sine",
+                                            "Square",
+		                                    "Sawtooth",
+		                                    "Triangle" },
 
-			  .menu[10].paramMenu.paramName = "2nd Harm. Wave:",
-			  .menu[10].paramMenu.param = 0x0,
-			  .menu[10].paramMenu.param_max = 0x3,
+			  .menu[10].subMenu.menuName = "2nd HARM. WAVE:",
+			  .menu[10].subMenu.itemID = 0,
+			  .menu[10].subMenu.itemID_max = 3,
+			  .menu[10].subMenu.itemName = { "Sine",
+											 "Square",
+											 "Sawtooth",
+											 "Triangle" },
 
-			  .menu[11].paramMenu.paramName = "3rd Harm. Wave:",
-			  .menu[11].paramMenu.param = 0x0,
-			  .menu[11].paramMenu.param_max = 0x3,
+			  .menu[11].subMenu.menuName = "3rd HARM. WAVE:",
+			  .menu[11].subMenu.itemID = 0,
+			  .menu[11].subMenu.itemID_max = 3,
+			  .menu[11].subMenu.itemName = { "Sine",
+											 "Square",
+									 		 "Sawtooth",
+									 		 "Triangle" },
 
-			  .menu[12].paramMenu.paramName = "LFO Amplitude:",
+			  .menu[12].paramMenu.paramName = "LFO AMPLITUDE:",
 			  .menu[12].paramMenu.param = 0xF,
 			  .menu[12].paramMenu.param_max = 0xF,
 
-			  .menu[13].paramMenu.paramName = "LFO Frequency:",
+			  .menu[13].paramMenu.paramName = "LFO FREQUENCY:",
 			  .menu[13].paramMenu.param = 0x0,
 			  .menu[13].paramMenu.param_max = 0x28,
 
-			  .menu[14].paramMenu.paramName = "LFO Wave:",
-			  .menu[14].paramMenu.param = 0x0,
-			  .menu[14].paramMenu.param_max = 0x3,
+			  .menu[14].subMenu.menuName = "LFO WAVE:",
+              .menu[14].subMenu.itemID = 0,
+			  .menu[14].subMenu.itemID_max = 3,
+              .menu[14].subMenu.itemName = { "Sine",
+                                             "Square",
+		                                     "Sawtooth",
+		                                     "Triangle" },
 
-			  .menu[15].paramMenu.paramName = "Attack:",
+			  .menu[15].paramMenu.paramName = "ATTACK:",
 			  .menu[15].paramMenu.param = 0x1,
 			  .menu[15].paramMenu.param_max = 0xF,
 
-			  .menu[16].paramMenu.paramName = "Decay:",
+			  .menu[16].paramMenu.paramName = "DECAY:",
 			  .menu[16].paramMenu.param = 0x1,
 			  .menu[16].paramMenu.param_max = 0xF,
 
-			  .menu[17].paramMenu.paramName = "Sustain:",
+			  .menu[17].paramMenu.paramName = "SUSTAIN:",
 			  .menu[17].paramMenu.param = 0x1,
 			  .menu[17].paramMenu.param_max = 0xF,
 
-			  .menu[18].paramMenu.paramName = "Release:",
+			  .menu[18].paramMenu.paramName = "RELEASE:",
 			  .menu[18].paramMenu.param = 0x1,
 			  .menu[18].paramMenu.param_max = 0xF
 
@@ -212,13 +228,13 @@ void enter_param()
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP3_OFFSET, (GUI.menu[8].paramMenu.param << 4));
 		GUI.menuID = 4;
 	} else if (GUI.menuID == 9) {    // Fundamental Wave
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE1_OFFSET, GUI.menu[9].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE1_OFFSET, GUI.menu[9].subMenu.itemID);
 		GUI.menuID = 5;
 	} else if (GUI.menuID == 10) {   // 2nd harmonic Wave
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE2_OFFSET, GUI.menu[10].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE2_OFFSET, GUI.menu[10].subMenu.itemID);
 		GUI.menuID = 5;
 	} else if (GUI.menuID == 11) {   // 4th harmonic Wave
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE3_OFFSET, GUI.menu[11].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE3_OFFSET, GUI.menu[11].subMenu.itemID);
 		GUI.menuID = 5;
 	} else if (GUI.menuID == 12) {   // LFO Amplitude
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_AMP_OFFSET, (GUI.menu[12].paramMenu.param << 4));
@@ -227,7 +243,7 @@ void enter_param()
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_FTW_OFFSET, GUI.menu[13].paramMenu.param);
 		GUI.menuID = 2;
 	} else if (GUI.menuID == 14) {   // LFO Wave
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_WAVE_OFFSET, GUI.menu[14].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_WAVE_OFFSET, GUI.menu[14].subMenu.itemID);
 		GUI.menuID = 2;
 	} else if (GUI.menuID == 15) {   // Attack
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, ATTACK_OFFSET, GUI.menu[15].paramMenu.param);
