@@ -28,7 +28,7 @@ GUI_t GUI =
               .menu[2].subMenu.itemID = 0,
 			  .menu[2].subMenu.itemID_max = 3,
               .menu[2].subMenu.itemName = { "Amplitude",
-		                                    "FTW",
+		                                    "Frequency",
 					                        "Wave Select",
 					                        "Atras" },
 
@@ -58,16 +58,16 @@ GUI_t GUI =
 								        	"Atras" },
 
 			  .menu[6].paramMenu.paramName = "Fundamental Amp:",
-			  .menu[6].paramMenu.param = 0xFF,
-			  .menu[6].paramMenu.param_max = 0xFF,
+			  .menu[6].paramMenu.param = 0xF,
+			  .menu[6].paramMenu.param_max = 0xF,
 
 			  .menu[7].paramMenu.paramName = "2nd Harm. Amp:",
-			  .menu[7].paramMenu.param = 0x00,
-			  .menu[7].paramMenu.param_max = 0xFF,
+			  .menu[7].paramMenu.param = 0x0,
+			  .menu[7].paramMenu.param_max = 0xF,
 
 			  .menu[8].paramMenu.paramName = "3rd Harm. Amp:",
-			  .menu[8].paramMenu.param = 0x00,
-			  .menu[8].paramMenu.param_max = 0xFF,
+			  .menu[8].paramMenu.param = 0x0,
+			  .menu[8].paramMenu.param_max = 0xF,
 
 			  .menu[9].paramMenu.paramName = "Fundamental Wave:",
 			  .menu[9].paramMenu.param = 0x0,
@@ -82,12 +82,12 @@ GUI_t GUI =
 			  .menu[11].paramMenu.param_max = 0x3,
 
 			  .menu[12].paramMenu.paramName = "LFO Amplitude:",
-			  .menu[12].paramMenu.param = 0xFF,
-			  .menu[12].paramMenu.param_max = 0xFF,
+			  .menu[12].paramMenu.param = 0xF,
+			  .menu[12].paramMenu.param_max = 0xF,
 
 			  .menu[13].paramMenu.paramName = "LFO Frequency:",
 			  .menu[13].paramMenu.param = 0x0,
-			  .menu[13].paramMenu.param_max = 0xFFFFFF,					// AJUSTAR LIMITE REALISTA
+			  .menu[13].paramMenu.param_max = 0x28,
 
 			  .menu[14].paramMenu.paramName = "LFO Wave:",
 			  .menu[14].paramMenu.param = 0x0,
@@ -203,13 +203,13 @@ void enter_menu(void)
 void enter_param()
 {
 	if (GUI.menuID == 6) {           // Fundamental amplitude
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP1_OFFSET, GUI.menu[6].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP1_OFFSET, (GUI.menu[6].paramMenu.param << 4));
 		GUI.menuID = 4;
 	} else if (GUI.menuID == 7) {    // 2nd harmonic amplitude
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP2_OFFSET, GUI.menu[7].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP2_OFFSET, (GUI.menu[7].paramMenu.param << 4));
 		GUI.menuID = 4;
 	} else if (GUI.menuID == 8) {    // 4th harmonic amplitude
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP3_OFFSET, GUI.menu[8].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP3_OFFSET, (GUI.menu[8].paramMenu.param << 4));
 		GUI.menuID = 4;
 	} else if (GUI.menuID == 9) {    // Fundamental Wave
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE1_OFFSET, GUI.menu[9].paramMenu.param);
@@ -221,7 +221,7 @@ void enter_param()
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE3_OFFSET, GUI.menu[11].paramMenu.param);
 		GUI.menuID = 5;
 	} else if (GUI.menuID == 12) {   // LFO Amplitude
-		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_AMP_OFFSET, GUI.menu[12].paramMenu.param);
+		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_AMP_OFFSET, (GUI.menu[12].paramMenu.param << 4));
 		GUI.menuID = 2;
 	} else if (GUI.menuID == 13) {   // LFO FTW
 		NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_FTW_OFFSET, GUI.menu[13].paramMenu.param);

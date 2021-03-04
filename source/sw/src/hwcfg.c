@@ -46,14 +46,14 @@ void interrupt_init(void)
 
 void Note_Config_init(void)
 {
-	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP1_OFFSET,     GUI.menu[6].paramMenu.param);
-	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP2_OFFSET,     GUI.menu[7].paramMenu.param);
-	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP3_OFFSET,     GUI.menu[8].paramMenu.param);
+	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP1_OFFSET,     (GUI.menu[6].paramMenu.param << 4));
+	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP2_OFFSET,     (GUI.menu[7].paramMenu.param << 4));
+	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, AMP3_OFFSET,     (GUI.menu[8].paramMenu.param << 4));
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE1_OFFSET,    GUI.menu[9].paramMenu.param);
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE2_OFFSET,    GUI.menu[10].paramMenu.param);
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, WAVE3_OFFSET,    GUI.menu[11].paramMenu.param);
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_FTW_OFFSET,  GUI.menu[13].paramMenu.param);
-	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_AMP_OFFSET,  GUI.menu[12].paramMenu.param);
+	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_AMP_OFFSET,  (GUI.menu[12].paramMenu.param << 4));
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, LFO_WAVE_OFFSET, GUI.menu[14].paramMenu.param);
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, ATTACK_OFFSET,   GUI.menu[15].paramMenu.param);
 	NOTE_CONFIG_mWriteReg(NOTE_CONFIG_ADDR, DECAY_OFFSET,    GUI.menu[16].paramMenu.param);
