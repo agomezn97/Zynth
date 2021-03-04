@@ -4,7 +4,6 @@
  * Created by rtlogik
  */
 
-
 #include "zynth.h"
 
 /* Function Prototypes */
@@ -18,13 +17,12 @@ char* itoa(int value, char* result, int base);
 /* Global variables */
 extern GUI_t GUI;
 
-
 int main()
 {
 
-	/*******************************************
-	 * 	       HARDWARE INITIALIZATION		   *
-	 *******************************************/
+	/****************************************
+	 * 	HARDWARE INITIALIZATION		*
+	 ****************************************/
 	HW_init();
 	CODEC_init();
 	LCD_init();
@@ -35,7 +33,6 @@ int main()
 	/* Enable IRQ Interrupts */
 	Xil_ExceptionEnable();
 
-
 	/* Display start menu */
 	LCD_cmd(DISPLAY_CLEAR);
 	LCD_send_str(GUI.menu[GUI.menuID].subMenu.menuName);
@@ -43,14 +40,12 @@ int main()
 	LCD_send_str(GUI.menu[GUI.menuID].subMenu.itemName[GUI.menu[GUI.menuID].subMenu.itemID]);
 
 	while(1);
-
 }
 
 
 /************************************************
  *        Interrupt Services Routines           *
  ************************************************/
-
 void IRQ_Handler(void *data)
 {
 	/* Check interrupt ID# and branch appropiately */
@@ -63,7 +58,6 @@ void IRQ_Handler(void *data)
 	} else if (IntID == 0x3D) {
 		ISR_Cw();
 	}
-
 }
 
 /* -- Clock wise encoder rotation --
@@ -132,8 +126,6 @@ void ISR_Btn(void)
 
 inline void refresh_lcd()
 {
-	char num[3];
-
 	if (GUI.menuID <= 5 || GUI.menuID == 14 || GUI.menuID == 9 || GUI.menuID == 10 || GUI.menuID == 11) {
 		LCD_cmd(DISPLAY_CLEAR);
 		LCD_cmd(RETURN_HOME);
@@ -142,6 +134,7 @@ inline void refresh_lcd()
 		LCD_send_str(GUI.menu[GUI.menuID].subMenu.itemName[GUI.menu[GUI.menuID].subMenu.itemID]);
 
 	} else {
+		char num[3];
 		itoa(GUI.menu[GUI.menuID].paramMenu.param, num, 10);
 		LCD_cmd(DISPLAY_CLEAR);
 		LCD_cmd(RETURN_HOME);
