@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
---Date        : Mon Mar  1 19:38:08 2021
+--Date        : Fri Mar  5 13:30:04 2021
 --Host        : DESKTOP-D10FM1T running 64-bit major release  (build 9200)
 --Command     : generate_target NCA.bd
 --Design      : NCA
@@ -25,21 +25,12 @@ entity NCA is
     o_NoteFree : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of NCA : entity is "NCA,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=NCA,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=5,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of NCA : entity is "NCA,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=NCA,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of NCA : entity is "NCA.hwdef";
 end NCA;
 
 architecture STRUCTURE of NCA is
-  component NCA_ADSR_Envelope_0_0 is
-  port (
-    i_Clk : in STD_LOGIC;
-    i_NoteOn : in STD_LOGIC;
-    i_ADSR_Param : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    o_NoteFree : out STD_LOGIC;
-    o_Scalar : out STD_LOGIC_VECTOR ( 15 downto 0 )
-  );
-  end component NCA_ADSR_Envelope_0_0;
   component NCA_DDS_0_0 is
   port (
     i_Clk : in STD_LOGIC;
@@ -50,32 +41,50 @@ architecture STRUCTURE of NCA is
     o_Wave : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component NCA_DDS_0_0;
-  component NCA_mult_gen_0_0 is
+  component NCA_mult_gen_0_1 is
   port (
     CLK : in STD_LOGIC;
     A : in STD_LOGIC_VECTOR ( 15 downto 0 );
     B : in STD_LOGIC_VECTOR ( 15 downto 0 );
     P : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  end component NCA_mult_gen_0_0;
-  component NCA_mult_gen_1_0 is
+  end component NCA_mult_gen_0_1;
+  component NCA_mult_gen_1_1 is
   port (
     CLK : in STD_LOGIC;
     A : in STD_LOGIC_VECTOR ( 15 downto 0 );
     B : in STD_LOGIC_VECTOR ( 15 downto 0 );
     P : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
-  end component NCA_mult_gen_1_0;
+  end component NCA_mult_gen_1_1;
   component NCA_sig2unsig_0_0 is
   port (
     i_Signed : in STD_LOGIC_VECTOR ( 15 downto 0 );
     o_Unsign : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component NCA_sig2unsig_0_0;
+  component NCA_ADSR_Envelope_0_0 is
+  port (
+    i_Clk : in STD_LOGIC;
+    i_NoteOn : in STD_LOGIC;
+    i_ADSR_Param : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    o_NoteFree : out STD_LOGIC;
+    o_Scalar : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component NCA_ADSR_Envelope_0_0;
+  component NCA_LFO_Bypass_0_0 is
+  port (
+    i_LFO_FTW : in STD_LOGIC_VECTOR ( 23 downto 0 );
+    i_InputNoteGen : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    i_InputNoteLFO : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    o_Note : out STD_LOGIC_VECTOR ( 15 downto 0 )
+  );
+  end component NCA_LFO_Bypass_0_0;
   signal ADSR_Envelope_0_o_NoteFree : STD_LOGIC;
   signal ADSR_Envelope_0_o_Scalar : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal B_0_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal DDS_0_o_Wave : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal LFO_Bypass_0_o_Note : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal i_ADSR_Param_0_1 : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal i_Amp_0_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal i_Clk_0_1 : STD_LOGIC;
@@ -122,14 +131,21 @@ DDS_0: component NCA_DDS_0_0
       i_WaveSelect(1 downto 0) => i_WaveSelect_0_1(1 downto 0),
       o_Wave(15 downto 0) => DDS_0_o_Wave(15 downto 0)
     );
-mult_gen_0: component NCA_mult_gen_0_0
+LFO_Bypass_0: component NCA_LFO_Bypass_0_0
      port map (
-      A(15 downto 0) => mult_gen_1_P(15 downto 0),
+      i_InputNoteGen(15 downto 0) => B_0_1(15 downto 0),
+      i_InputNoteLFO(15 downto 0) => mult_gen_1_P(15 downto 0),
+      i_LFO_FTW(23 downto 0) => i_FTW_0_1(23 downto 0),
+      o_Note(15 downto 0) => LFO_Bypass_0_o_Note(15 downto 0)
+    );
+mult_gen_0: component NCA_mult_gen_0_1
+     port map (
+      A(15 downto 0) => LFO_Bypass_0_o_Note(15 downto 0),
       B(15 downto 0) => ADSR_Envelope_0_o_Scalar(15 downto 0),
       CLK => i_Clk_0_1,
       P(15 downto 0) => mult_gen_0_P(15 downto 0)
     );
-mult_gen_1: component NCA_mult_gen_1_0
+mult_gen_1: component NCA_mult_gen_1_1
      port map (
       A(15 downto 0) => sig2unsig_0_o_Unsign(15 downto 0),
       B(15 downto 0) => B_0_1(15 downto 0),

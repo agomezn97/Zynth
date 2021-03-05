@@ -22,16 +22,18 @@ end Encoder_Receiver;
 
 architecture RTL of Encoder_Receiver is
 
-    constant c_DEBOUNCE_LIMIT : Integer := 100000;
+    constant c_DEBOUNCE_LIMIT : Integer := 100000; -- ~10ms
 
+    -- FSM type definition:
     type t_EncoderState is (IDLE, WAIT_A, WAIT_B, CW_PULSE, CCW_PULSE, WAIT_FOR_IDLE);
-
     signal r_EncoderState, w_EncoderState : t_EncoderState := IDLE;
 
+    -- Register signals:
     signal r_BtnState : Std_Logic := '0';
     signal r_Count    : Integer range 0 to c_DEBOUNCE_LIMIT := 0;
     signal r_CountEnc : Integer range 0 to c_DEBOUNCE_LIMIT := 0;
-
+    
+    -- Wire signals:
     signal w_BtnState : Std_Logic;
     signal w_Count    : Integer range 0 to c_DEBOUNCE_LIMIT; 
     signal w_CountEnc : Integer range 0 to c_DEBOUNCE_LIMIT; 
@@ -39,24 +41,24 @@ architecture RTL of Encoder_Receiver is
 begin --======================== ARCHITECTURE ================================--
 
 
-    ROT_DETECT: process (i_A, i_B, r_EncoderState, r_CountEnc)
+    ROTATION_DETECT: process (i_Clk, i_A, i_B, r_EncoderState, r_CountEnc)
     begin
         o_Cw  <= '0';
         o_Ccw <= '0';
         case r_EncoderState is
             when IDLE =>
+                w_EncoderState <= IDLE;
+                w_CountEnc <= 0;
+                --
                 if i_A = '0' then
                     w_EncoderState <= WAIT_B;
                 elsif i_B = '0' then
                     w_EncoderState <= WAIT_A;
-                else
-                    w_EncoderState <= IDLE;
                 end if;
-            
+
             when WAIT_A =>
                 if i_A = '0' then
                     w_EncoderState <= CW_PULSE;
-                    -- o_Cw <= '1' 
                     w_CountEnc <= 0;
                 elsif (r_CountEnc = c_DEBOUNCE_LIMIT) then
                     w_EncoderState <= IDLE;
@@ -69,7 +71,6 @@ begin --======================== ARCHITECTURE ================================--
             when WAIT_B =>
                 if i_B = '0' then
                     w_EncoderState <= CCW_PULSE;
-                    -- o_Ccw <= '1' 
                     w_CountEnc <= 0;
                 elsif (r_CountEnc = c_DEBOUNCE_LIMIT) then
                     w_EncoderState <= IDLE;
@@ -80,25 +81,29 @@ begin --======================== ARCHITECTURE ================================--
                 end if;    
             
             when CW_PULSE =>
-                o_Cw <= '1';
                 w_EncoderState <= WAIT_FOR_IDLE;
+                w_CountEnc <= 0;
+                o_Cw <= '1';
                     
             when CCW_PULSE =>
-                o_Ccw <= '1';
                 w_EncoderState <= WAIT_FOR_IDLE;
+                w_CountEnc <= 0;
+                o_Ccw <= '1';
 
             when WAIT_FOR_IDLE =>
+                w_EncoderState <= WAIT_FOR_IDLE;
+                w_CountEnc <= 0;
+                --
                 if (i_A = '1' and i_B = '1') then
-                    w_EncoderState <= IDLE;
-                else 
-                    w_EncoderState <= WAIT_FOR_IDLE;
+                    w_EncoderState <= IDLE;   
                 end if;
 
             when others =>
-                w_EncoderState <= IDLE;       
+                w_EncoderState <= IDLE;   
+                w_CountEnc <= 0;              
         end case ;
-
-    end process ROT_DETECT;
+        
+    end process ROTATION_DETECT;
 
     BTN_DEBOUNCE: process (i_Btn, r_Count, r_BtnState) 
     begin       
@@ -115,7 +120,7 @@ begin --======================== ARCHITECTURE ================================--
         end if;
     end process BTN_DEBOUNCE;
 
-    --- Registers ---
+    --- REGISTERS ---
     REGS: process (i_Clk)
     begin
         if rising_edge(i_Clk) then
@@ -126,7 +131,7 @@ begin --======================== ARCHITECTURE ================================--
         end if;
     end process REGS;
 
-    --- Output ---
-    o_Btn <= not r_BtnState;
+    --- OUTPUT ---
+    o_Btn <= not r_BtnState; -- Active High
 
 end RTL;

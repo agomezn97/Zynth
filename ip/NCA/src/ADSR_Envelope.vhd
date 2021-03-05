@@ -53,7 +53,7 @@ begin --==================== ARCHITECTURE =========================--
     ---------------------------------------------
     ---             STATE MACHINE             ---
     ---------------------------------------------
-    SM: process(r_ADSR_State, i_NoteOn, r_Scalar, r_Count)
+    FSM: process(r_ADSR_State, i_NoteOn, r_Scalar, r_Count)
     begin
         case r_ADSR_State is
             when IDLE =>
@@ -69,11 +69,14 @@ begin --==================== ARCHITECTURE =========================--
             
             when ATTACK =>
                 w_ADSR_State <= ATTACK;
+                w_Scalar <= r_Scalar;
                 w_Count <= r_Count;
                 o_NoteFree <= '0';
                 --
                 if (i_NoteOn = '0') then
                     w_ADSR_State <= RELEASE;
+                elsif (w_Attack = "1111") then
+                    w_ADSR_State <= DECAY;
                 elsif (r_Scalar < (c_PEAK_VALUE - w_Attack)) then
                     w_Scalar <= r_Scalar + w_Attack;
                 else
@@ -139,17 +142,17 @@ begin --==================== ARCHITECTURE =========================--
                 o_NoteFree <= '0';
                                 
         end case;
-    end process SM;
+    end process FSM;
 
-    --- REGISTER ---
-    REG: process(i_Clk)
+    --- REGISTERS ---
+    REGS: process(i_Clk)
     begin
         if rising_edge(i_Clk) then
             r_ADSR_State <= w_ADSR_State;
             r_Count  <= w_Count;
             r_Scalar <= w_Scalar;
         end if;
-    end process REG;
+    end process REGS;
     
     --- OUTPUT ---
     o_Scalar   <= Std_Logic_Vector(r_Scalar(23 downto 8));
