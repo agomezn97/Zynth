@@ -10,7 +10,6 @@ extern GUI_t GUI;
 
 void HW_init(void)
 {
-
 	/* I2C0 Module Initialization */
 	I2C0_init();
 
