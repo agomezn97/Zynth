@@ -94,8 +94,8 @@ GUI_t GUI =
 					       "Triangle" },
 
 		.menu[12].paramMenu.paramName = "LFO AMPLITUDE:",
-		.menu[12].paramMenu.param = 0xA,
-		.menu[12].paramMenu.param_max = 0xA,
+		.menu[12].paramMenu.param = 0xF,
+		.menu[12].paramMenu.param_max = 0xF,
 
 		.menu[13].paramMenu.paramName = "LFO FREQUENCY:",
 		.menu[13].paramMenu.param = 0x0,
