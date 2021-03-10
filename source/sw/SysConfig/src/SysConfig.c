@@ -21,7 +21,7 @@ int main()
 {
 
 	/****************************************
-	 * 	HARDWARE INITIALIZATION		*
+	 *       HARDWARE INITIALIZATION        *
 	 ****************************************/
 	HW_init();
 	CODEC_init();
