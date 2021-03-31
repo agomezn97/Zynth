@@ -59,7 +59,8 @@ ENTITY NCA_ADSR_Envelope_0_0 IS
     i_NoteOn : IN STD_LOGIC;
     i_ADSR_Param : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     o_NoteFree : OUT STD_LOGIC;
-    o_Scalar : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    o_Scalar : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    o_StateDebug : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
   );
 END NCA_ADSR_Envelope_0_0;
 
@@ -72,7 +73,8 @@ ARCHITECTURE NCA_ADSR_Envelope_0_0_arch OF NCA_ADSR_Envelope_0_0 IS
       i_NoteOn : IN STD_LOGIC;
       i_ADSR_Param : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       o_NoteFree : OUT STD_LOGIC;
-      o_Scalar : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      o_Scalar : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      o_StateDebug : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
     );
   END COMPONENT ADSR_Envelope;
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;
@@ -88,6 +90,7 @@ BEGIN
       i_NoteOn => i_NoteOn,
       i_ADSR_Param => i_ADSR_Param,
       o_NoteFree => o_NoteFree,
-      o_Scalar => o_Scalar
+      o_Scalar => o_Scalar,
+      o_StateDebug => o_StateDebug
     );
 END NCA_ADSR_Envelope_0_0_arch;

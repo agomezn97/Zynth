@@ -14,7 +14,8 @@ entity ADSR_Envelope is
         i_ADSR_Param : in  Std_Logic_Vector(15 downto 0);   -- Envelope configuration parameters
         --
         o_NoteFree   : out Std_Logic;                       -- Active when scalar = 0       
-        o_Scalar     : out Std_Logic_Vector(15 downto 0)    -- Envelope number that multiplies the note
+        o_Scalar     : out Std_Logic_Vector(15 downto 0);   -- Envelope number that multiplies the note
+        o_StateDebug : out Std_Logic_Vector(2 downto 0)
     );
 end ADSR_Envelope;
 
@@ -26,7 +27,7 @@ architecture RTL of ADSR_Envelope is
     constant c_ZERO_VALUE    : Unsigned(23 downto 0) := (others => '0');
 
     --- TYPE DEFINITIONS ---
-    type t_ADSR_State is (IDLE, ATTACK, DECAY, SUSTAIN, RELEASE); -- State Machine type
+    type t_ADSR_State is (IDLE, ATTACK, DECAY, SUSTAIN, RELEASE, WAIT_FOR_NOTEOFF); -- State Machine type
     
     signal w_ADSR_State : t_ADSR_State;
     signal r_ADSR_State : t_ADSR_State := IDLE;
@@ -53,7 +54,7 @@ begin --==================== ARCHITECTURE =========================--
     ---------------------------------------------
     ---             STATE MACHINE             ---
     ---------------------------------------------
-    FSM: process(r_ADSR_State, i_NoteOn, r_Scalar, r_Count)
+    FSM: process(r_ADSR_State, i_NoteOn, r_Scalar, r_Count, i_Clk)
     begin
         case r_ADSR_State is
             when IDLE =>
@@ -61,6 +62,7 @@ begin --==================== ARCHITECTURE =========================--
                 w_Scalar <= c_ZERO_VALUE;
                 w_Count  <= c_ZERO_VALUE;
                 o_NoteFree <= '1';
+                o_StateDebug <= "000";
                 --
                 if (i_NoteOn = '1') then
                     w_ADSR_State <= ATTACK;
@@ -72,6 +74,7 @@ begin --==================== ARCHITECTURE =========================--
                 w_Scalar <= r_Scalar;
                 w_Count <= r_Count;
                 o_NoteFree <= '0';
+                o_StateDebug <= "001";
                 --
                 if (i_NoteOn = '0') then
                     w_ADSR_State <= RELEASE;
@@ -93,6 +96,7 @@ begin --==================== ARCHITECTURE =========================--
                 w_Scalar <= r_Scalar;
                 w_Count <= r_Count;
                 o_NoteFree <= '0';
+                o_StateDebug <= "010";
                 --
                 if (i_NoteOn = '0') then
                     w_ADSR_State <= RELEASE;
@@ -106,6 +110,7 @@ begin --==================== ARCHITECTURE =========================--
             when SUSTAIN =>
                 w_ADSR_State <= SUSTAIN;
                 o_NoteFree <= '0';
+                o_StateDebug <= "011";
                 if w_Decay = ("1111") then
                         w_Scalar <= c_PEAK_VALUE;
                     else
@@ -127,12 +132,27 @@ begin --==================== ARCHITECTURE =========================--
                 w_Scalar <= r_Scalar;
                 w_Count <= r_Count;
                 o_NoteFree <= '0';
+                o_StateDebug <= "100";
                 --
-                if (r_Scalar > (c_ZERO_VALUE + w_Release)) then
+                if (w_Release = "0000") then
+                    w_ADSR_State <= WAIT_FOR_NOTEOFF;
+                    w_Scalar <= c_ZERO_VALUE;
+                elsif (r_Scalar > (c_ZERO_VALUE + w_Release)) then
                     w_Scalar <= r_Scalar - w_Release;
                 else
-                    w_ADSR_State <= IDLE;
+                    w_ADSR_State <= WAIT_FOR_NOTEOFF;
                     w_Scalar <= c_ZERO_VALUE;
+                end if;
+                
+            when WAIT_FOR_NOTEOFF =>
+                w_ADSR_State <= WAIT_FOR_NOTEOFF;
+                w_Scalar <= c_ZERO_VALUE;
+                w_Count <= c_ZERO_VALUE;
+                o_NoteFree <= '0';
+                o_StateDebug <= "101";
+                --
+                if (i_NoteOn = '0') then
+                    w_ADSR_State <= IDLE;
                 end if;
             
             when others =>
@@ -140,6 +160,7 @@ begin --==================== ARCHITECTURE =========================--
                 w_Scalar <= c_ZERO_VALUE;
                 w_Count <= r_Count;
                 o_NoteFree <= '0';
+                o_StateDebug <= "000";
                                 
         end case;
     end process FSM;

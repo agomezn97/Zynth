@@ -19,15 +19,6 @@ set_property IOSTANDARD LVCMOS33 [get_ports I2S_SDATA]
 set_property IOSTANDARD LVCMOS33 [get_ports I2S_LRCLK]
 set_property IOSTANDARD LVCMOS33 [get_ports I2S_BCLK]
 
-# --- INPUTS ---
-set_property PACKAGE_PIN D19 [get_ports btn0]
-set_property PACKAGE_PIN D20 [get_ports btn1]
-set_property PACKAGE_PIN L20 [get_ports btn2]
-set_property PACKAGE_PIN L19 [get_ports btn3]
-set_property IOSTANDARD LVCMOS33 [get_ports btn0]
-set_property IOSTANDARD LVCMOS33 [get_ports btn1]
-set_property IOSTANDARD LVCMOS33 [get_ports btn2]
-set_property IOSTANDARD LVCMOS33 [get_ports btn3]
 
 # --- LCD ---
 set_property PACKAGE_PIN T14 [get_ports {GPIO_EMIO_tri_io[2]}]
@@ -62,4 +53,5 @@ set_property PACKAGE_PIN Y16 [get_ports enc1_B]
 set_property IOSTANDARD LVCMOS33 [get_ports enc1_B]
 set_property IOSTANDARD LVCMOS33 [get_ports enc1_btn]
 set_property PACKAGE_PIN Y19 [get_ports enc1_btn]
+
 

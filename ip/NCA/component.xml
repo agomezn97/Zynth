@@ -2,80 +2,8 @@
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <spirit:vendor>rtlogik</spirit:vendor>
   <spirit:library>user</spirit:library>
-  <spirit:name>NCA</spirit:name>
-  <spirit:version>2.1</spirit:version>
-  <spirit:busInterfaces>
-    <spirit:busInterface>
-      <spirit:name>CLK.I_MCLK</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_MCLK</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.I_MCLK.FREQ_HZ">12288000</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.I_MCLK.PHASE">0.000</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>DATA.I_NOTEIN</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>DATA</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_NoteIn</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>LAYERED_METADATA</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.DATA.I_NOTEIN.LAYERED_METADATA">undef</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>DATA.O_NCA_NOTE</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="data_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>DATA</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_NCA_Note</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>LAYERED_METADATA</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.DATA.O_NCA_NOTE.LAYERED_METADATA">xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 16} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 16}</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-  </spirit:busInterfaces>
+  <spirit:name>NCA_wrapper</spirit:name>
+  <spirit:version>1.0</spirit:version>
   <spirit:model>
     <spirit:views>
       <spirit:view>
@@ -83,7 +11,7 @@
         <spirit:displayName>Synthesis</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
         <spirit:language>VHDL</spirit:language>
-        <spirit:modelName>NCA</spirit:modelName>
+        <spirit:modelName>NCA_wrapper</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_mult_gen_12_0__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
@@ -93,7 +21,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>81c9e4c6</spirit:value>
+            <spirit:value>ac98d315</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -102,7 +30,7 @@
         <spirit:displayName>Simulation</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
         <spirit:language>VHDL</spirit:language>
-        <spirit:modelName>NCA</spirit:modelName>
+        <spirit:modelName>NCA_wrapper</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_mult_gen_12_0__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
@@ -112,7 +40,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7751bf26</spirit:value>
+            <spirit:value>e7fb46e0</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -150,7 +78,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>i_Amp_LFO</spirit:name>
+        <spirit:name>i_LFO_Amp</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -167,7 +95,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>i_En_LFO</spirit:name>
+        <spirit:name>i_LFO_En</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -180,11 +108,28 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>i_FTW_LFO</spirit:name>
+        <spirit:name>i_LFO_FTW</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
             <spirit:left spirit:format="long">23</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>i_LFO_Wave</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -240,23 +185,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>i_WaveSel_LFO</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>o_NCA_Note</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -274,7 +202,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>o_NoteFree</spirit:name>
+        <spirit:name>o_NoteFree_0</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -292,17 +220,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/NCA_ADSR_Envelope_0_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/NCA_DDS_0_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/NCA_sig2unsig_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -312,7 +230,12 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/ADSR_Envelope.vhd</spirit:name>
+        <spirit:name>src/NCA_sig2unsig_0_0.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/NCA_ADSR_Envelope_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -337,14 +260,15 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA_mult_gen_0_0/NCA_mult_gen_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:name>src/LFO_Bypass.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/NCA_mult_gen_1_0/NCA_mult_gen_1_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_mult_gen_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/sig2unsig.vhd</spirit:name>
@@ -352,21 +276,24 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA_mult_gen_0_1/NCA_mult_gen_0_1.xci</spirit:name>
+        <spirit:name>src/ADSR_Envelope.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/NCA_mult_gen_0_0/NCA_mult_gen_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_mult_gen_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA_mult_gen_1_1/NCA_mult_gen_1_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_mult_gen_1</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/LFO_Bypass.vhd</spirit:name>
+        <spirit:name>src/NCA.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/NCA_ooc.xdc</spirit:name>
@@ -376,9 +303,9 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA.vhd</spirit:name>
+        <spirit:name>src/NCA_wrapper.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_a0a4ab29</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_b6e4b9fc</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -395,17 +322,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>sim/NCA_ADSR_Envelope_0_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>sim/NCA_DDS_0_0.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>sim/NCA_sig2unsig_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -415,7 +332,12 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/ADSR_Envelope.vhd</spirit:name>
+        <spirit:name>sim/NCA_sig2unsig_0_0.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/NCA_ADSR_Envelope_0_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -440,14 +362,15 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA_mult_gen_0_0/NCA_mult_gen_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:name>src/LFO_Bypass.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/NCA_mult_gen_1_0/NCA_mult_gen_1_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_mult_gen_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/sig2unsig.vhd</spirit:name>
@@ -455,24 +378,27 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA_mult_gen_0_1/NCA_mult_gen_0_1.xci</spirit:name>
+        <spirit:name>src/ADSR_Envelope.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/NCA_mult_gen_0_0/NCA_mult_gen_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_mult_gen_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/NCA_mult_gen_1_1/NCA_mult_gen_1_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_mult_gen_1</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/LFO_Bypass.vhd</spirit:name>
+        <spirit:name>sim/NCA.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
-        <spirit:name>sim/NCA.vhd</spirit:name>
+        <spirit:name>src/NCA_wrapper.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -481,7 +407,7 @@
       <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_mult_gen_12_0__ref_view_fileset</spirit:name>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
-          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="mult_gen" xilinx:version="12.0">
+          <xilinx:componentRef xsi:type="xilinx:componentRefType" xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="mult_gen" xilinx:version="12.0">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -490,18 +416,18 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/NCA_v2_1.tcl</spirit:name>
+        <spirit:name>xgui/NCA_wrapper_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>NCA_v2_1</spirit:description>
+  <spirit:description>NCA_wrapper_v1_0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">NCA_v1_0</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">NCA_wrapper_v1_0</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -512,33 +438,23 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>NCA_v2_1</xilinx:displayName>
-      <xilinx:definitionSource>IPI</xilinx:definitionSource>
+      <xilinx:displayName>NCA_wrapper_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-03-05T12:30:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-03-26T11:42:57Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@52570ce_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@e9536d_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@65a30cde_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@75af5631_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@70be6bee_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@b82a599_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@479b8b9f_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@70094ed6_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ff1faab_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@22eec66_ARCHIVE_LOCATION">c:/Users/anton/Desktop/RTLogik/Repositories/Zynth/ip/NCA</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f688989_ARCHIVE_LOCATION">c:/Repositories/Zynth_monofonia/ip/NCA</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20f3db33_ARCHIVE_LOCATION">c:/Repositories/Zynth_monofonia/ip/NCA</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32df05a4_ARCHIVE_LOCATION">c:/Repositories/Zynth_monofonia/ip/NCA</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f344b76_ARCHIVE_LOCATION">c:/Repositories/Zynth_monofonia/ip/NCA</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52c874fc_ARCHIVE_LOCATION">c:/Repositories/Zynth_monofonia/ip/NCA</xilinx:tag>
       </xilinx:tags>
-      <xilinx:configElementInfos>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.I_MCLK.FREQ_HZ" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.DATA.O_NCA_NOTE.LAYERED_METADATA" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
-      </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7f3c8ef0"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="45f81335"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="af922326"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2a8934a3"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b080688d"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="36697c9b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a36df4bf"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
