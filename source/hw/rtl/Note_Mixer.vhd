@@ -55,7 +55,7 @@ begin --======================== ARCHITECTURE ================================--
     REGS: process(i_Clk)
     begin
         if rising_edge(i_Clk) then
-            r_NoteSum   <= w_NoteSum;
+            r_NoteSum <= w_NoteSum;
         end if;
     end process REGS;
 
