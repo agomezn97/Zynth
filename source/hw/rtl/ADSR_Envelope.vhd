@@ -20,26 +20,26 @@ end ADSR_Envelope;
 
 architecture RTL of ADSR_Envelope is
 
-    --- CONSTANTS DEFINITION ---
+    -- CONSTANTS DEFINITION:
     constant c_PEAK_VALUE    : Unsigned(23 downto 0) := (others => '1');
     constant c_SUSTAIN_VALUE : Unsigned(23 downto 0) := (22 => '0', others => '1'); -- 75% of peak value
     constant c_ZERO_VALUE    : Unsigned(23 downto 0) := (others => '0');
 
-    --- TYPE DEFINITIONS ---
+    -- TYPE DEFINITIONS:
     type t_ADSR_State is (IDLE, ATTACK, DECAY, SUSTAIN, RELEASE); -- State Machine type
     
     signal w_ADSR_State : t_ADSR_State;
     signal r_ADSR_State : t_ADSR_State := IDLE;
     
-    --- WIRE SIGNALS DEFINITION ---
+    -- WIRE SIGNALS:
     signal w_Scalar  : Unsigned(23 downto 0);
     signal w_Count   : Unsigned(23 downto 0);
-    signal w_Attack  : Unsigned(3 downto 0);
-    signal w_Decay   : Unsigned(3 downto 0);
-    signal w_Sustain : Unsigned(3 downto 0);
-    signal w_Release : Unsigned(3 downto 0);
+    signal w_Attack  : Unsigned(3  downto 0);
+    signal w_Decay   : Unsigned(3  downto 0);
+    signal w_Sustain : Unsigned(3  downto 0);
+    signal w_Release : Unsigned(3  downto 0);
     
-    --- REGISTER SIGNALS DEFINITION ---
+    -- REGISTER SIGNALS:
     signal r_Scalar  : Unsigned(23 downto 0) := (others => '0');
     signal r_Count   : Unsigned(23 downto 0) := (others => '0');
 
@@ -58,9 +58,9 @@ begin --==================== ARCHITECTURE =========================--
         case r_ADSR_State is
             when IDLE =>
                 w_ADSR_State <= IDLE;
-                w_Scalar <= c_ZERO_VALUE;
-                w_Count  <= c_ZERO_VALUE;
-                o_NoteFree <= '1';
+                w_Scalar     <= c_ZERO_VALUE;
+                w_Count      <= c_ZERO_VALUE;
+                o_NoteFree   <= '1';
                 --
                 if (i_NoteOn = '1') then
                     w_ADSR_State <= ATTACK;
@@ -69,9 +69,9 @@ begin --==================== ARCHITECTURE =========================--
             
             when ATTACK =>
                 w_ADSR_State <= ATTACK;
-                w_Scalar <= r_Scalar;
-                w_Count <= r_Count;
-                o_NoteFree <= '0';
+                w_Scalar     <= r_Scalar;
+                w_Count      <= r_Count;
+                o_NoteFree   <= '0';
                 --
                 if (i_NoteOn = '0') then
                     w_ADSR_State <= RELEASE;
@@ -90,9 +90,9 @@ begin --==================== ARCHITECTURE =========================--
                     
             when DECAY =>
                 w_ADSR_State <= DECAY;
-                w_Scalar <= r_Scalar;
-                w_Count <= r_Count;
-                o_NoteFree <= '0';
+                w_Scalar     <= r_Scalar;
+                w_Count      <= r_Count;
+                o_NoteFree   <= '0';
                 --
                 if (i_NoteOn = '0') then
                     w_ADSR_State <= RELEASE;
@@ -105,11 +105,11 @@ begin --==================== ARCHITECTURE =========================--
             
             when SUSTAIN =>
                 w_ADSR_State <= SUSTAIN;
-                o_NoteFree <= '0';
+                o_NoteFree   <= '0';
                 if w_Decay = ("1111") then
-                        w_Scalar <= c_PEAK_VALUE;
-                    else
-                        w_Scalar <= c_SUSTAIN_VALUE;
+                    w_Scalar <= c_PEAK_VALUE;
+                else
+                    w_Scalar <= c_SUSTAIN_VALUE;
                 end if;
                 --
                 if (i_NoteOn = '0') then
@@ -124,9 +124,9 @@ begin --==================== ARCHITECTURE =========================--
             
             when RELEASE =>
                 w_ADSR_State <= RELEASE;
-                w_Scalar <= r_Scalar;
-                w_Count <= r_Count;
-                o_NoteFree <= '0';
+                w_Scalar     <= r_Scalar;
+                w_Count      <= r_Count;
+                o_NoteFree   <= '0';
                 --
                 if (r_Scalar > (c_ZERO_VALUE + w_Release)) then
                     w_Scalar <= r_Scalar - w_Release;
@@ -137,9 +137,9 @@ begin --==================== ARCHITECTURE =========================--
             
             when others =>
                 w_ADSR_State <= IDLE;
-                w_Scalar <= c_ZERO_VALUE;
-                w_Count <= r_Count;
-                o_NoteFree <= '0';
+                w_Scalar     <= c_ZERO_VALUE;
+                w_Count      <= r_Count;
+                o_NoteFree   <= '0';
                                 
         end case;
     end process FSM;
@@ -149,13 +149,12 @@ begin --==================== ARCHITECTURE =========================--
     begin
         if rising_edge(i_Clk) then
             r_ADSR_State <= w_ADSR_State;
-            r_Count  <= w_Count;
-            r_Scalar <= w_Scalar;
+            r_Count      <= w_Count;
+            r_Scalar     <= w_Scalar;
         end if;
     end process REGS;
     
     --- OUTPUT ---
-    o_Scalar   <= Std_Logic_Vector(r_Scalar(23 downto 8));
-
+    o_Scalar <= Std_Logic_Vector(r_Scalar(23 downto 8));
 
 end RTL;
