@@ -24,19 +24,21 @@ end I2S_Tx;
 
 architecture RTL of I2S_Tx is 
 
+    -- TYPE DEFINITION:
     type t_TxState is (IDLE, LEFT_TX, RIGHT_TX);
     
     signal w_TxState : t_TxState;
     signal r_TxState : t_TxState := IDLE;
 
+    -- WIRE SIGNALS:
     signal w_BCLK   : Std_Logic;
     signal w_LRCLK  : Std_Logic;
     signal w_LDATA  : Std_Logic_Vector(g_WORD_WIDTH-1 downto 0);
     signal w_RDATA  : Std_Logic_Vector(g_WORD_WIDTH-1 downto 0);
     signal w_SDATA  : Std_Logic;
     signal w_BitCnt : Integer;
-    --signal w_SmpFlag: Std_Logic;
     
+    -- REGISTER SIGNALS:
     signal r_BCLK    : Std_Logic := '0';
     signal r_LRCLK   : Std_Logic := '0';
     signal r_LDATA   : Std_Logic_Vector(g_WORD_WIDTH-1 downto 0) := (others => '0');
@@ -45,7 +47,7 @@ architecture RTL of I2S_Tx is
     signal r_BitCnt  : Integer range 0 to g_WORD_WIDTH-1 := g_WORD_WIDTH-1;
     signal r_SmpFlag : Std_Logic := '0';
 
-begin ---------------------- ARCHITECTURE ---------------------------
+begin --======================== ARCHITECTURE ================================--
     
     -- Bit Clock Generation
     BCLK_GEN: process (i_MCLK)
@@ -77,9 +79,11 @@ begin ---------------------- ARCHITECTURE ---------------------------
             w_LDATA <= r_LDATA;
             w_RDATA <= r_RDATA;
         end if;
-    end process;
-    
-    -- State Machine
+    end process SAMP;
+            
+    -------------------------
+    ---   State Machine   ---
+    -------------------------
     SM: process (r_TxState, i_EN, r_BitCnt)
     begin
         case r_TxState is
@@ -138,18 +142,15 @@ begin ---------------------- ARCHITECTURE ---------------------------
                 w_BitCnt  <= 15; 
                 r_SmpFlag <= '1';             
         end case;
-    end process;
+    end process SM;
     
-    
-    -------------------------
-    ---     Registers     ---
-    -------------------------
+    --- REGISTERS ---
     REG1: process (i_MCLK)
     begin
         if rising_edge(i_MCLK) then          
             r_BCLK <= w_BCLK;         
         end if;
-    end process;
+    end process REG1;
     
     REG2: process (r_BCLK)
     begin
@@ -159,11 +160,10 @@ begin ---------------------- ARCHITECTURE ---------------------------
             r_RDATA   <= w_RDATA;    
             r_LRCLK   <= w_LRCLK;
             r_BitCnt  <= w_BitCnt;     
-            --r_SmpFlag <= w_SmpFlag;   
         end if;
-    end process;
+    end process REG2;
     
-    -- Output
+    --- OUTPUT ---
     o_BCLK  <= r_BCLK;
     o_LRCLK <= r_LRCLK;
     with r_TxState select
