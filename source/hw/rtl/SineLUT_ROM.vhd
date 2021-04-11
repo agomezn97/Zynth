@@ -3,9 +3,6 @@
 -- 
 -- This design will infer a block RAM primitive in the synthesis process
 --
--- The sine points were obtained with: 
--- https://www.daycounter.com/Calculators/Sine-Generator-Calculator.phtml
---
 -- Created by rtlogik
 ----------------------------------------------------------------------------------
 
