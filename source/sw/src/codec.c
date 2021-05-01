@@ -9,10 +9,9 @@ void CODEC_init() {
 
 	/* Configure CODEC Address */
 	uint8_t codecAddr = 0x38;                                // Codec I2C Address = [0|1|1|1|0|ADDR1|ADDR0]
-	codecAddr |= (EMIO_RO->ADDR0 | (EMIO_RO->ADDR1 << 1));	 // PASAR A VARIABLE GLOBAL!!
+	codecAddr |= (EMIO_RO->ADDR0 | (EMIO_RO->ADDR1 << 1));	 
 
 	/* Register Configuration */
-	// USAR MEMCPY EN VEZ DE CREAR TANTAS VARIABLES!!!!
 	
 	// Enable core clock
 	I2CMSG ConfigCODEC0 = { .SlaveAddress = codecAddr,
